@@ -8,3 +8,8 @@
     @apply font-primary;
   }
 }
+
+/* this is a leaflet style */
+.leaflet-container {
+  height: 100vh
+}
