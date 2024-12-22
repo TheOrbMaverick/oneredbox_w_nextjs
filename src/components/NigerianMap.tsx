@@ -1,32 +1,78 @@
 "use client";
-import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
-import { useEffect, useState } from "react";
 
-export default function NigerianMap() {
+import { MapContainer, TileLayer, GeoJSON, useMap } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import { useEffect, useState, useRef } from "react";
+
+export default function NigerianMapComponent() {
   const [geoJsonData, setGeoJsonData] = useState<any>(null);
+  const previousLayerRef = useRef<any>(null); // To keep track of the previously clicked layer
 
   useEffect(() => {
-    fetch("/nigeriaGeoJson.geojson") // File in public folder
+    fetch("/nigeriaGeoJson2.geojson")
       .then((response) => response.json())
       .then((data) => setGeoJsonData(data))
       .catch((error) => console.error("Failed to load GeoJSON:", error));
   }, []);
 
   const nigeriaBounds: [[number, number], [number, number]] = [
-    [4.2704, 2.6769], // Southwest corner
-    [13.893, 14.6776], // Northeast corner
+    [4.2704, 2.6769],
+    [13.893, 14.6776],
   ];
 
-  const handleStateClick = (stateFeature: any) => {
-    // Handle state click logic
+  const handleStateClick = (e: any, map: any) => {
+    const clickedLayer = e.target;
+
+    // Reset style of the previously clicked layer
+    if (previousLayerRef.current) {
+      previousLayerRef.current.setStyle({
+        color: "#ff0000",
+        weight: 2,
+        fillColor: "#ff0000",
+        fillOpacity: 0.2,
+      });
+    }
+
+    // Set style for the newly clicked layer
+    clickedLayer.setStyle({
+      color: "#0000ff",
+      weight: 4,
+      fillColor: "#00ff00",
+      fillOpacity: 0,
+    });
+
+    // Bring the clicked layer to the front
+    clickedLayer.bringToFront();
+
+    // Store the currently clicked layer
+    previousLayerRef.current = clickedLayer;
+
+    // Zoom to the bounds of the clicked layer
+    const bounds = clickedLayer.getBounds();
+    map.fitBounds(bounds);
   };
 
-  const onEachState = (feature: any, layer: any) => {
+  const onEachState = (feature: any, layer: any, map: any) => {
     layer.on({
-      click: handleStateClick,
+      click: (e: any) => handleStateClick(e, map),
     });
     layer.bindPopup(`State: ${feature.properties.name}`);
+  };
+
+  const GeoJSONLayer = ({ data }: { data: any }) => {
+    const map = useMap();
+    return (
+      <GeoJSON
+        data={data}
+        style={{
+          color: "#ff0000",
+          weight: 2,
+          fillColor: "#ff0000",
+          fillOpacity: 0.2,
+        }}
+        onEachFeature={(feature, layer) => onEachState(feature, layer, map)}
+      />
+    );
   };
 
   return (
@@ -43,17 +89,7 @@ export default function NigerianMap() {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {geoJsonData && (
-        <GeoJSON
-          data={geoJsonData}
-          style={{
-            color: "#000000", // Boundary color (red)
-            weight: 3,        // Line thickness
-            fillOpacity: 0,   // No interior fill color
-          }}
-          onEachFeature={onEachState}
-        />
-      )}
+      {geoJsonData && <GeoJSONLayer data={geoJsonData} />}
     </MapContainer>
   );
 }
