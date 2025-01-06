@@ -1,18 +1,11 @@
-// src/pages/Home.tsx
 import React from "react";
-import { Navbar } from "@/components/Navbar";
-import { Hero } from "@/components/Hero";
-import { BottomSection } from "@/components/BottomSection";
-import NigerianMap from "@/components/NigerianMap";
+
+import HomePage from "./homePage/page";
 
 export default function Home() {
   return (
     <main>
-      <Navbar />
-      <NigerianMap/>
-      <Hero />
-      <BottomSection />
+      <HomePage />
     </main>
   );
 }
-
