@@ -63,7 +63,7 @@ export default function NigerianMapComponent() {
       id="nigerian-map"
       className="relative z-10 flex flex-col justify-center sm:py-32 py-10"
     >
-      <h1 className="text-black text-center font-bold text-3xl md:text-4xl mb-16">
+      <h1 className="text-white text-center font-bold text-3xl md:text-4xl mb-16">
         Where would you like to invest?
       </h1>
 

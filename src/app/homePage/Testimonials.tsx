@@ -9,27 +9,27 @@ export default function Testimonials() {
     {
       image: "/images/client.png",
       testimonial: "OneRedBox is an amazing company",
-      name: "Ita Enang",
+      name: "Abiodun Vlad",
     },
     {
       image: "/images/client.png",
       testimonial: "OneRedBox is an amazing company",
-      name: "Ita Enang",
+      name: "Abiodun Vlad",
     },
     {
       image: "/images/client.png",
       testimonial: "OneRedBox is an amazing company",
-      name: "Ita Enang",
+      name: "Abiodun Vlad",
     },
     {
       image: "/images/client.png",
       testimonial: "OneRedBox is an amazing company",
-      name: "Ita Enang",
+      name: "Abiodun Vlad",
     },
     {
       image: "/images/client.png",
       testimonial: "OneRedBox is an amazing company",
-      name: "Ita Enang",
+      name: "Abiodun Vlad",
     },
   ];
 
