@@ -71,7 +71,7 @@ export default function NigerianMapComponent() {
         center={[9.082, 8.6753]}
         zoom={6}
         minZoom={6.5}
-        maxZoom={6.5}
+        maxZoom={12}
         bounds={nigeriaBounds}
         maxBounds={nigeriaBounds}
         maxBoundsViscosity={1.0}
