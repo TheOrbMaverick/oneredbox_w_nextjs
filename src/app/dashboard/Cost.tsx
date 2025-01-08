@@ -50,8 +50,8 @@ export default function Cost({ selectedId }: CostProps) {
           Project Summary for {data.structure}
         </h2>
 
-        <div className="flex flex-row justify-between xl:gap-0 md:gap-5 gap-2">
-          <div className="flex flex-col items-center justify-center xl:gap-5 gap-1 xl:w-1/4 w-1/3 h-auto py-3 px-5 shadow-lg shadow-slate-700 rounded-md">
+        <div className="flex flex-row w-full justify-between xl:gap-3 md:gap-5 gap-2">
+          <div className="flex flex-col items-center justify-center xl:gap-5 gap-1 xl:w-1/3 w-1/3 h-auto py-3 px-5 shadow-lg shadow-slate-700 rounded-md">
             <p className="text-white text-xs md:text-lg xl:text-2xl text-center font-bold">
               CONTRACT SUM
             </p>
@@ -60,7 +60,7 @@ export default function Cost({ selectedId }: CostProps) {
             </p>
           </div>
 
-          <div className="flex flex-col items-center justify-center xl:w-1/4 w-1/3 h-auto py-3 px-5 shadow-lg shadow-slate-700 rounded-md">
+          <div className="flex flex-col items-center justify-center xl:w-1/3 w-1/3 h-auto py-3 px-5 shadow-lg shadow-slate-700 rounded-md">
             <div className="flex flex-col items-center justify-center xl:gap-5 gap-1 xl:mb-7 mb-3">
               <p className="text-white text-xs md:text-lg xl:text-2xl text-center font-bold">
                 AMOUNT PAID
@@ -79,7 +79,7 @@ export default function Cost({ selectedId }: CostProps) {
             </p>
           </div>
 
-          <div className="flex flex-col items-center justify-center xl:gap-5 gap-1 xl:w-1/4 w-1/3 h-auto py-3 px-5 shadow-lg shadow-slate-700 rounded-md">
+          <div className="flex flex-col items-center justify-center xl:gap-5 gap-1 xl:w-1/3 w-1/3 h-auto py-3 px-5 shadow-lg shadow-slate-700 rounded-md">
             <p className="text-white text-xs md:text-lg xl:text-2xl text-center font-bold">
               BALANCE OWED
             </p>
