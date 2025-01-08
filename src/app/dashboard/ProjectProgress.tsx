@@ -178,11 +178,11 @@ export default function ProjectProgress({ selectedId }: ProjectProgressProps) {
         </div>
 
         {/* Uploaded video */}
-        <div className="aspect-w-16 aspect-h-9">
+        {/* <div className="aspect-w-16 aspect-h-9">
           <video controls className="w-full h-60 xl:h-96">
             <source src="/videos/sample.mp4" type="video/mp4" />
           </video>
-        </div>
+        </div> */}
         <p className="text-black text-base xl:text-4xl uppercase xl:mb-10 mb-5">
           Watch your baby grow...
         </p>
