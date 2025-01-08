@@ -40,9 +40,9 @@ export default function Dashboard() {
         <div className="mt-32">
           <button
             onClick={handleBack}
-            className="-mb-40 mx-10 px-4 py-2 bg-gray-700 text-white rounded-md shadow hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="-mb-40 mx-10 px-4 py-2 bg-red-500 text-white rounded-md shadow hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
-            Back to ID Input
+            Back
           </button>
 
           <Cost selectedId={submittedId} />
