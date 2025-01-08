@@ -61,8 +61,7 @@ export default function Form() {
           <input
             placeholder="John Doe"
             type="text"
-            id="fullName"
-            value={fullName}
+            id=""
             onChange={(e) => setFullName(e.target.value)}
             className="text-black w-full py-4 px-2 border border-black rounded-lg focus:outline-none"
           />
@@ -80,7 +79,6 @@ export default function Form() {
             placeholder="Placeholder: VI, Lagos. Maitama, Abuja"
             type="text"
             id="location"
-            onChange={(e) => setFullName(e.target.value)}
             className="text-black w-full py-4 px-2 border border-black rounded-lg focus:outline-none"
           />
         </div>
@@ -97,7 +95,6 @@ export default function Form() {
             placeholder="10,000,000 - 100,000,000"
             type="text"
             id=""
-            onChange={(e) => setFullName(e.target.value)}
             className="text-black w-full py-4 px-2 border border-black rounded-lg focus:outline-none"
           />
         </div>
@@ -114,7 +111,6 @@ export default function Form() {
             placeholder="NGN, USD, GBP, CAD"
             type="text"
             id=""
-            onChange={(e) => setFullName(e.target.value)}
             className="text-black w-full py-4 px-2 border border-black rounded-lg focus:outline-none"
           />
         </div>
@@ -150,7 +146,6 @@ export default function Form() {
             type="phone"
             id=""
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
             className="text-black w-full py-4 px-2 border border-black rounded-lg focus:outline-none"
           />
         </div>
