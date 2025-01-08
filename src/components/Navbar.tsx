@@ -22,7 +22,7 @@ export const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className="fixed w-full flex justify-between items-center px-8 py-4 bg-black shadow-md shadow-white z-50">
+    <nav className="fixed w-full flex justify-between items-center px-8 py-4 bg-black z-50">
       <div className="flex items-center">
         <Image
           src="/images/oneLogo.svg"

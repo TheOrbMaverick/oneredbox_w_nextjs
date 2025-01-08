@@ -1,11 +1,18 @@
+"use client";
 // src/components/Hero.tsx
 import Image from "next/image";
 import React from "react";
 
 export const Hero: React.FC = () => {
+  const handleGetStarted = () => {
+    const mapSection = document.getElementById("nigerian-map");
+    if (mapSection) {
+      mapSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <section
-      className="bg-black flex flex-col-reverse xl:flex-row xl:pl-10 pl-0 xl:pt-0 pt-32 xl:h-screen h-fit bg-cover bg-center mb-0 xl:gap-10 gap-0 relative"
+      className="bg-black flex flex-col-reverse w-full max-w-full overflow-hidden xl:flex-row xl:pl-10 pl-0 xl:pt-0 pt-32 xl:h-screen h-fit  bg-cover bg-center mb-0 xl:gap-10 gap-0 relative"
       // style={{ backgroundImage: "url('/construction.webp')" }}
     >
       {/* <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center"> */}
@@ -19,7 +26,10 @@ export const Hero: React.FC = () => {
           management.
         </p>
 
-        <button className="w-full xl:w-1/2 xl:self-start px-4 py-2 bg-red-500 text-white text-base font-semibold rounded hover:bg-red-600">
+        <button
+          onClick={handleGetStarted}
+          className="w-full xl:w-1/2 xl:self-start px-4 py-2 bg-red-500 text-white text-base font-semibold rounded hover:bg-red-600"
+        >
           Get Started
         </button>
       </div>
@@ -27,7 +37,7 @@ export const Hero: React.FC = () => {
       <div className="relative flex xl:w-3/5 w-full">
         <Image
           className="  w-full object-cover"
-          src="/images/heroImg.svg"
+          src="/images/construction.svg"
           alt=""
           width={50}
           height={50}

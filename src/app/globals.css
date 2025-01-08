@@ -6,10 +6,11 @@
   /* Add your custom base styles here */
   body {
     @apply font-primary;
+    background: #000;
   }
 }
 
 /* this is a leaflet style */
 .leaflet-container {
-  height: 100vh
+  height: 100vh;
 }

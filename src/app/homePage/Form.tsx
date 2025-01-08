@@ -41,71 +41,123 @@ export default function Form() {
   };
 
   return (
-    <div className="sm:py-32 py-10 sm:px-60 px-10">
+    <div className="flex flex-col justify-center items-center sm:py-32 py-10 sm:px-60 px-10">
       <h1 className="text-black text-center font-bold text-3xl md:text-4xl mb-16">
         WE WANT TO HEAR FROM YOU
       </h1>
-      <form onSubmit={handleSubmit} className="flex flex-col justify-center ">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col justify-center items-center xl:w-1/2 w-full"
+      >
         <div className="relative mb-5 w-full">
+          <label
+            htmlFor="fullName"
+            className=" left-2 top-4 text-gray-500 pointer-events-none  origin-left"
+          >
+            Full Name
+          </label>
+
           <input
+            placeholder="John Doe"
             type="text"
             id="fullName"
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
             className="text-black w-full py-4 px-2 border border-black rounded-lg focus:outline-none"
           />
-
-          <label
-            htmlFor="fullName"
-            className={`absolute left-2 top-4 text-gray-500 pointer-events-none transition-all transform origin-left ${
-              fullName ? "-translate-y-9 scale-75" : ""
-            }`}
-          >
-            Full Name
-          </label>
         </div>
 
         <div className="relative mb-5 w-full">
+          <label
+            htmlFor="location"
+            className="left-2 top-4 text-gray-500 pointer-events-none  origin-left"
+          >
+            Where would you like to invest? E.g; VI, Lagos. Maitama, Abuja
+          </label>
+
           <input
+            placeholder="Placeholder: VI, Lagos. Maitama, Abuja"
+            type="text"
+            id="location"
+            onChange={(e) => setFullName(e.target.value)}
+            className="text-black w-full py-4 px-2 border border-black rounded-lg focus:outline-none"
+          />
+        </div>
+
+        <div className="relative mb-5 w-full">
+          <label
+            htmlFor=""
+            className="left-2 top-4 text-gray-500 pointer-events-none  origin-left"
+          >
+            What is your range budget for investment?
+          </label>
+
+          <input
+            placeholder="10,000,000 - 100,000,000"
+            type="text"
+            id=""
+            onChange={(e) => setFullName(e.target.value)}
+            className="text-black w-full py-4 px-2 border border-black rounded-lg focus:outline-none"
+          />
+        </div>
+
+        <div className="relative mb-5 w-full">
+          <label
+            htmlFor=""
+            className="left-2 top-4 text-gray-500 pointer-events-none  origin-left"
+          >
+            Currency{" "}
+          </label>
+
+          <input
+            placeholder="NGN, USD, GBP, CAD"
+            type="text"
+            id=""
+            onChange={(e) => setFullName(e.target.value)}
+            className="text-black w-full py-4 px-2 border border-black rounded-lg focus:outline-none"
+          />
+        </div>
+
+        <div className="relative mb-5 w-full">
+          <label
+            htmlFor="email"
+            className="left-2 top-4 text-gray-500 pointer-events-none  origin-left"
+          >
+            Email
+          </label>
+
+          <input
+            placeholder="Enter email"
             type="email"
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="text-black w-full py-4 px-2 border border-black rounded-lg focus:outline-none"
           />
-
-          <label
-            htmlFor="email"
-            className={`absolute left-2 top-4 text-gray-500 pointer-events-none transition-all transform origin-left ${
-              email ? "-translate-y-9 scale-75" : ""
-            }`}
-          >
-            Email
-          </label>
         </div>
 
         <div className="relative mb-5 w-full">
-          <textarea
-            id="message"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
+          <label
+            htmlFor="email"
+            className="left-2 top-4 text-gray-500 pointer-events-none  origin-left"
+          >
+            Phone Number
+          </label>
+
+          <input
+            placeholder="+234-803-555-7777"
+            type="phone"
+            id=""
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="text-black w-full py-4 px-2 border border-black rounded-lg focus:outline-none"
           />
-
-          <label
-            htmlFor="message"
-            className={`absolute left-2 top-4 text-gray-500 pointer-events-none transition-all transform origin-left ${
-              message ? "-translate-y-9 scale-75" : ""
-            }`}
-          >
-            Message
-          </label>
         </div>
 
         <button
           type="submit"
           disabled={loading}
-          className="w-full py-4 px-2 border bg-purple-700 rounded-full mb-5 text-white font-bold uppercase"
+          className="w-full py-4 px-2 border bg-black rounded-full mb-5 text-white font-bold uppercase"
         >
           {loading ? "Sending..." : "SEND"}
         </button>

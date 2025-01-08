@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Papa from "papaparse";
 
 interface ProjectData {
+  id: string;
   work1: string;
   status1: string;
   details1: string;
@@ -18,7 +19,11 @@ interface ProjectData {
   videoUrl: string;
 }
 
-export default function ProjectProgress() {
+interface ProjectProgressProps {
+  selectedId: string;
+}
+
+export default function ProjectProgress({ selectedId }: ProjectProgressProps) {
   const [data, setData] = useState<ProjectData | null>(null);
 
   useEffect(() => {
@@ -30,18 +35,66 @@ export default function ProjectProgress() {
       .then((csvData) => {
         const parsedResult = Papa.parse<ProjectData>(csvData, { header: true });
         const parsedData = parsedResult.data as ProjectData[];
-        setData(parsedData[0]);
+        const filteredData = parsedData.find((row) => row.id === selectedId);
+        setData(filteredData || null);
       })
       .catch((error) => console.error("Error fetching CSV:", error));
-  }, []);
+  }, [selectedId]);
 
-  if (!data) return <p>Loading...</p>;
+  if (!data) return <p className="text-white">Loading...</p>;
+
+  const statusArray = [data.status1, data.status2, data.status3, data.status4];
+
+  const completedTasks = statusArray.filter(
+    (status) => status === "Completed"
+  ).length;
+
+  const completionPercentage = (completedTasks / statusArray.length) * 100;
+
+  const barColor =
+    completionPercentage === 100
+      ? "green"
+      : completionPercentage > 50
+      ? "yellow"
+      : "red";
 
   return (
     <div className="flex flex-col  xl:px-10 md:px-10 px-3 sm:py-20 py-10">
       <h2 className="text-black text-base xl:text-4xl uppercase xl:mb-10 mb-5">
         Project Progress
       </h2>
+
+      <div className="mb-5">
+        <div className="relative pt-1">
+          <div className="flex mb-2 items-center justify-between">
+            <div>
+              <span className="text-sm font-semibold inline-block py-1 px-2 uppercase rounded-full text-teal-600">
+                {Math.round(completionPercentage)}%
+              </span>
+            </div>
+          </div>
+          <div className="flex mb-2">
+            <div className="relative flex w-full">
+              <div
+                className="flex mb-2 text-xs leading-none font-semibold justify-center text-center whitespace-nowrap align-center text-teal-100"
+                style={{
+                  width: `${completionPercentage}%`,
+                }}
+              >
+                <div
+                  className="shadow-none flex flex-col text-center whitespace-nowrap align-center text-teal-100"
+                  style={{
+                    width: "100%",
+                    background: barColor,
+                    borderRadius: "0.25rem",
+                    height: "8px",
+                  }}
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div className="overflow-x-auto xl:mb-20 mb-10">
         <table className="min-w-full bg-white border border-gray-300">
