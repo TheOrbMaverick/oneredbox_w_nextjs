@@ -41,12 +41,12 @@ export default function Cost({ selectedId }: CostProps) {
 
   return (
     <section className="bg-black flex flex-col xl:px-10 md:px-10 px-3 xl:pt-20 pt-20 sm:pb-20 pb-10 h-fit bg-cover bg-center mb-0 xl:gap-10 gap-0 ">
-      <h1 className="text-white text-sm xl:text-xl font-bold">
+      <h1 className="text-white text-sm md:text-xl font-bold mb-5">
         Welcome, Mr. {data.name}
       </h1>
 
       <div className="flex flex-col items-center justify-center">
-        <h2 className="text-white text-base xl:text-4xl uppercase xl:mb-10 mb-5">
+        <h2 className="text-white text-base md:text-4xl uppercase xl:mb-14 mb-7 font-bold">
           Project Summary for {data.structure}
         </h2>
 

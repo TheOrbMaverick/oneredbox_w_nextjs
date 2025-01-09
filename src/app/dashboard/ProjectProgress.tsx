@@ -60,7 +60,7 @@ export default function ProjectProgress({ selectedId }: ProjectProgressProps) {
 
   return (
     <div className="flex flex-col  xl:px-10 md:px-10 px-3 sm:py-20 py-10">
-      <h2 className="text-black text-base xl:text-4xl uppercase xl:mb-10 mb-5">
+      <h2 className="text-white font-bold text-base xl:text-4xl uppercase xl:mb-10 mb-5">
         Project Progress
       </h2>
 
@@ -97,68 +97,60 @@ export default function ProjectProgress({ selectedId }: ProjectProgressProps) {
       </div>
 
       <div className="overflow-x-auto xl:mb-20 mb-10">
-        <table className="min-w-full bg-white border border-gray-300">
+        <table className="min-w-full bg-black shadow-lg shadow-slate-700 md:mb-20 mb-10">
           <thead>
-            <tr className="bg-gray-100">
-              <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase border-r border-gray-300">
+            <tr className="bg-black">
+              <th className="px-6 py-3 text-left text-sm font-semibold text-white uppercase border-r border-gray-300">
                 Work
               </th>
-              <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase border-r border-gray-300">
+              <th className="px-6 py-3 text-left text-sm font-semibold text-white uppercase border-r border-gray-300">
                 Status
               </th>
-              <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase">
+              <th className="px-6 py-3 text-left text-sm font-semibold text-white uppercase">
                 Details
               </th>
             </tr>
           </thead>
 
           <tbody>
-            <tr className="bg-white">
-              <td className="px-6 py-4 text-sm text-gray-900 border-r border-gray-300">
+            <tr className="bg-slate-900">
+              <td className="px-6 py-4 text-sm text-white border-r border-gray-300">
                 {data.work1}
               </td>
-              <td className="px-6 py-4 text-sm text-gray-900 border-r border-gray-300">
+              <td className="px-6 py-4 text-sm text-white border-r border-gray-300">
                 {data.status1}
               </td>
-              <td className="px-6 py-4 text-sm text-gray-900">
-                {data.details1}
-              </td>
+              <td className="px-6 py-4 text-sm text-white">{data.details1}</td>
             </tr>
 
-            <tr className="bg-gray-50">
-              <td className="px-6 py-4 text-sm text-gray-900 border-r border-gray-300">
+            <tr className="bg-black">
+              <td className="px-6 py-4 text-sm text-white border-r border-gray-300">
                 {data.work2}
               </td>
-              <td className="px-6 py-4 text-sm text-gray-900 border-r border-gray-300">
+              <td className="px-6 py-4 text-sm text-white border-r border-gray-300">
                 {data.status2}
               </td>
-              <td className="px-6 py-4 text-sm text-gray-900">
-                {data.details2}
-              </td>
+              <td className="px-6 py-4 text-sm text-white">{data.details2}</td>
             </tr>
 
-            <tr className="bg-white">
-              <td className="px-6 py-4 text-sm text-gray-900 border-r border-gray-300">
+            <tr className="bg-slate-900">
+              <td className="px-6 py-4 text-sm text-white border-r border-gray-300">
                 {data.work3}
               </td>
-              <td className="px-6 py-4 text-sm text-gray-900 border-r border-gray-300">
+              <td className="px-6 py-4 text-sm text-white border-r border-gray-300">
                 {data.status3}
               </td>
-              <td className="px-6 py-4 text-sm text-gray-900">
-                {data.details3}
-              </td>
+              <td className="px-6 py-4 text-sm text-white">{data.details3}</td>
             </tr>
 
-            <tr className="bg-gray-50">
-              <td className="px-6 py-4 text-sm text-gray-900 border-r border-gray-300">
+            <tr className="bg-black">
+              <td className="px-6 py-4 text-sm text-white border-r border-gray-300">
                 {data.work4}
               </td>
-              <td className="px-6 py-4 text-sm text-gray-900 border-r border-gray-300">
+              <td className="px-6 py-4 text-sm text-white border-r border-gray-300">
                 {data.status4}
               </td>
-              <td className="px-6 py-4 text-sm text-gray-900">
-                {data.details4}
-              </td>
+              <td className="px-6 py-4 text-sm text-white">{data.details4}</td>
             </tr>
           </tbody>
         </table>

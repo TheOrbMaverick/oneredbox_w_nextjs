@@ -3,17 +3,28 @@ import { Navbar } from "@/components/Navbar";
 import React, { useEffect, useState } from "react";
 import Cost from "./Cost";
 import ProjectProgress from "./ProjectProgress";
+import { useRouter } from "next/navigation";
 
 export default function Dashboard() {
   const [selectedId, setSelectedId] = useState("");
   const [submittedId, setSubmittedId] = useState<string>("");
+  const router = useRouter();
 
   useEffect(() => {
     const savedId = localStorage.getItem("submittedId");
     if (savedId) {
       setSubmittedId(savedId);
+    } else {
+      setSubmittedId("");
     }
   }, []);
+
+  useEffect(() => {
+    if (!submittedId) {
+      localStorage.removeItem("submittedId");
+      router.push("/dashboard");
+    }
+  }, [submittedId, router]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedId(e.target.value);
@@ -27,23 +38,31 @@ export default function Dashboard() {
     }
   };
 
-  const handleBack = () => {
-    localStorage.removeItem("submittedId");
-    setSubmittedId("");
-  };
+  // const handleBack = () => {
+  //   localStorage.removeItem("submittedId");
+  //   setSubmittedId("");
+  //   router.push("/");
+  // };
+
+  useEffect(() => {
+    const savedId = localStorage.getItem("submittedId");
+    if (!savedId) {
+      setSubmittedId("");
+    }
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
 
       {submittedId ? (
-        <div className="mt-32">
-          <button
+        <div className="mt-20">
+          {/* <button
             onClick={handleBack}
             className="-mb-40 mx-10 px-4 py-2 bg-red-500 text-white rounded-md shadow hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
             Back
-          </button>
+          </button> */}
 
           <Cost selectedId={submittedId} />
 

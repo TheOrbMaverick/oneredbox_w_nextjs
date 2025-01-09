@@ -135,7 +135,7 @@ export default function Form() {
 
         <div className="relative mb-5 w-full">
           <label
-            htmlFor="email"
+            htmlFor="phone"
             className="left-2 top-4 text-gray-500 pointer-events-none  origin-left"
           >
             Phone Number
@@ -145,7 +145,6 @@ export default function Form() {
             placeholder="+234-803-555-7777"
             type="phone"
             id=""
-            value={email}
             className="text-black w-full py-4 px-2 border border-black rounded-lg focus:outline-none"
           />
         </div>
