@@ -31,7 +31,7 @@ export default function NigerianMapComponent() {
   ];
 
   const abujaPins: { geocode: [number, number]; popUp: string }[] = [
-    { geocode: [9.0563, 7.4985], popUp: "Abuja Pin 1" },
+    { geocode: [9.0563, 7.4985], popUp: "Abuja Pin 1 thid is a place that I really like and everything there makes perfect sense to me is this the only way to edit this" },
     { geocode: [9.1, 7.5], popUp: "Abuja Pin 2" },
   ];
 

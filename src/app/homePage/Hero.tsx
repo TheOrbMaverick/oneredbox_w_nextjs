@@ -37,7 +37,7 @@ export const Hero: React.FC = () => {
       <div className="relative flex xl:w-3/5 w-full">
         <Image
           className="  w-full object-cover"
-          src="/images/construction.svg"
+          src="/images//construction.svg"
           alt=""
           width={50}
           height={50}
