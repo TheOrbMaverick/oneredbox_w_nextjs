@@ -16,7 +16,7 @@ export default function Form() {
   // const [message, setMessage] = useState("");
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
 
-  const siteKey = "6LcdP7UqAAAAAPl-F2ECLdBo4vNmlgFFlJl2H6ds";
+  const siteKey = "6Ld-pLUqAAAAAImRZHm8S7rMb0Al97GtqqCSpdJs";
 
   function generateCaptcha() {
     const num1 = Math.floor(Math.random() * 10) + 1;
