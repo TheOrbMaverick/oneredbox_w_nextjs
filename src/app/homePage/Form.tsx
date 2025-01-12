@@ -1,19 +1,78 @@
 "use client";
 import React, { useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function Form() {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [phone, setPhone] = useState("");
+  const [location, setLocation] = useState("");
+  const [budget, setBudget] = useState("");
+  const [currency, setCurrency] = useState("");
+  const [captchaInput, setCaptchaInput] = useState("");
+  const [captcha, setCaptcha] = useState(generateCaptcha());
   const [loading, setLoading] = useState(false);
 
-  // const send = async () => {
-  //   setLoading(true);
-  // };
+  // const [message, setMessage] = useState("");
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+
+  const siteKey = "6LcdP7UqAAAAAPl-F2ECLdBo4vNmlgFFlJl2H6ds";
+
+  function generateCaptcha() {
+    const num1 = Math.floor(Math.random() * 10) + 1;
+    const num2 = Math.floor(Math.random() * 10) + 1;
+    return { question: `${num1} + ${num2}`, answer: num1 + num2 };
+  }
+
+  const handleCaptchaChange = (token: string | null) => {
+    setCaptchaToken(token);
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
+
+    if (!captchaToken) {
+      alert("Please complete the CAPTCHA to proceed.");
+      setLoading(false);
+      return;
+    }
+
+    if (parseInt(captchaInput) !== captcha.answer) {
+      alert("CAPTCHA is incorrect. Please try again.");
+      setCaptcha(generateCaptcha());
+      setCaptchaInput("");
+      setLoading(false);
+      return;
+    }
+
+    const message = `
+      Full Name: ${fullName}
+      Email: ${email}
+      Phone: ${phone}
+      Location: ${location}
+      Budget: ${budget}
+      Currency: ${currency}
+    `;
+
+    //Replace <YOUR_WHATSAPP_NUMBER> with your actual number
+    const whatsappUrl = `https://wa.me/<YOUR_WHATSAPP_NUMBER>?text=${encodeURIComponent(
+      message
+    )}`;
+
+    window.open(whatsappUrl, "_blank");
+    // setLoading(false);
+
+    setFullName("");
+    setEmail("");
+    setPhone("");
+    setLocation("");
+    setBudget("");
+    setCurrency("");
+    setCaptcha(generateCaptcha());
+    setCaptchaInput("");
+    setCaptchaToken(null);
+    setLoading(false);
 
     try {
       const response = await fetch("/api/submit", {
@@ -21,14 +80,15 @@ export default function Form() {
         headers: {
           "Content-type": "application/json",
         },
-        body: JSON.stringify({ fullName, email, message }),
+        body: JSON.stringify({ fullName, email, message, captchaToken }),
       });
 
       if (response.ok) {
         alert("Message sent successfully!");
         setFullName("");
         setEmail("");
-        setMessage("");
+        // setMessage("");
+        setCaptchaToken(null);
       } else {
         alert("Failed to send message. Please try again.");
       }
@@ -61,7 +121,8 @@ export default function Form() {
           <input
             placeholder="John Doe"
             type="text"
-            id=""
+            id="fullName"
+            value={fullName}
             onChange={(e) => setFullName(e.target.value)}
             className="text-black w-full py-4 px-2 border border-black rounded-lg focus:outline-none"
           />
@@ -76,9 +137,11 @@ export default function Form() {
           </label>
 
           <input
-            placeholder="Placeholder: VI, Lagos. Maitama, Abuja"
+            placeholder="VI, Lagos. Maitama, Abuja"
             type="text"
             id="location"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
             className="text-black w-full py-4 px-2 border border-black rounded-lg focus:outline-none"
           />
         </div>
@@ -94,7 +157,9 @@ export default function Form() {
           <input
             placeholder="10,000,000 - 100,000,000"
             type="text"
-            id=""
+            id="budget"
+            value={budget}
+            onChange={(e) => setBudget(e.target.value)}
             className="text-black w-full py-4 px-2 border border-black rounded-lg focus:outline-none"
           />
         </div>
@@ -110,7 +175,9 @@ export default function Form() {
           <input
             placeholder="NGN, USD, GBP, CAD"
             type="text"
-            id=""
+            id="currency"
+            value={currency}
+            onChange={(e) => setCurrency(e.target.value)}
             className="text-black w-full py-4 px-2 border border-black rounded-lg focus:outline-none"
           />
         </div>
@@ -143,11 +210,45 @@ export default function Form() {
 
           <input
             placeholder="+234-803-555-7777"
-            type="phone"
-            id=""
+            type="tel"
+            id="phone"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
             className="text-black w-full py-4 px-2 border border-black rounded-lg focus:outline-none"
           />
         </div>
+
+        <div className="relative mb-5 w-full">
+          {/* Anti-robot check */}
+          <label htmlFor="captcha" className="text-gray-500">
+            Solve this: {captcha.question}
+          </label>
+          <input
+            placeholder="Answer"
+            type="text"
+            id="captcha"
+            value={captchaInput}
+            onChange={(e) => setCaptchaInput(e.target.value)}
+            className="text-black w-full py-4 px-2 border border-black rounded-lg focus:outline-none"
+            required
+          />
+
+          {/* <label htmlFor="message" className="text-gray-500">
+            Message
+          </label>
+          <textarea
+            placeholder="Enter your message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            className="text-black w-full py-4 px-2 border border-black rounded-lg focus:outline-none"
+          /> */}
+        </div>
+
+        <ReCAPTCHA
+          sitekey={siteKey}
+          onChange={handleCaptchaChange}
+          className="mb-5"
+        />
 
         <button
           type="submit"

@@ -52,7 +52,7 @@ export default function NigerianMapComponent() {
     const map = useMap();
 
     if (state) {
-      const zoomLevel = 10;
+      const zoomLevel = 15;
       map.setView(stateCoordinates[state], zoomLevel);
     }
 
@@ -71,8 +71,8 @@ export default function NigerianMapComponent() {
       <MapContainer
         center={[9.082, 8.6753]}
         zoom={6}
-        minZoom={6.5}
-        maxZoom={12}
+        minZoom={6.4}
+        maxZoom={30}
         maxBoundsViscosity={1.0}
         className="h-[50px] sm:h-[600px] w-full max-w-[100%] overflow-hidden"
       >
@@ -104,7 +104,7 @@ export default function NigerianMapComponent() {
                 mouseover: (e) => {
                   const layer = e.target;
                   layer.setStyle({
-                    fillOpacity: 0.15,
+                    fillOpacity: 0.08,
                     weight: 5,
                     dashArray: "10",
                     color: "#666",
