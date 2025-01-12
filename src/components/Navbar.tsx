@@ -24,13 +24,15 @@ export const Navbar: React.FC = () => {
   return (
     <nav className="fixed w-full flex justify-between items-center px-8 py-4 bg-black z-50">
       <div className="flex items-center">
-        <Image
-          src="/images/oneLogo.svg"
-          alt="logo"
-          width={50}
-          height={50}
-          className="mr-4"
-        />
+        <Link href="/">
+          <Image
+            src="/images/oneLogo.svg"
+            alt="logo"
+            width={50}
+            height={50}
+            className="mr-4"
+          />
+        </Link>
       </div>
 
       <button
