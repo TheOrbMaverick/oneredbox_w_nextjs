@@ -56,7 +56,7 @@ export default function Form() {
     `;
 
     //Replace <YOUR_WHATSAPP_NUMBER> with your actual number
-    const whatsappUrl = `https://wa.me/<YOUR_WHATSAPP_NUMBER>?text=${encodeURIComponent(
+    const whatsappUrl = `https://wa.me/+2347016639821?text=${encodeURIComponent(
       message
     )}`;
 
