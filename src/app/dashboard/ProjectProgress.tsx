@@ -96,10 +96,13 @@ export default function ProjectProgress({ selectedId }: ProjectProgressProps) {
         </div>
       </div>
 
-      <div className="overflow-x-auto xl:mb-20 mb-10">
-        <table className="min-w-full bg-black shadow-lg shadow-slate-700 md:mb-20 mb-10">
+      <div className="overflow-x-auto xl:mb-20 mb-10 ">
+        <table
+          className="min-w-full  md:mb-20 mb-10 shadow-xl shadow-slate-950"
+          style={{ backgroundColor: "#171D1D" }}
+        >
           <thead>
-            <tr className="bg-black">
+            <tr className="" style={{ backgroundColor: "#171D1D" }}>
               <th className="px-6 py-3 text-left text-sm font-semibold text-white uppercase border-r border-gray-300">
                 Work
               </th>
@@ -113,7 +116,7 @@ export default function ProjectProgress({ selectedId }: ProjectProgressProps) {
           </thead>
 
           <tbody>
-            <tr className="bg-slate-900">
+            <tr className="bg-slate-950">
               <td className="px-6 py-4 text-sm text-white border-r border-gray-300">
                 {data.work1}
               </td>
@@ -123,7 +126,7 @@ export default function ProjectProgress({ selectedId }: ProjectProgressProps) {
               <td className="px-6 py-4 text-sm text-white">{data.details1}</td>
             </tr>
 
-            <tr className="bg-black">
+            <tr className="" style={{ backgroundColor: "#171D1D" }}>
               <td className="px-6 py-4 text-sm text-white border-r border-gray-300">
                 {data.work2}
               </td>
@@ -133,7 +136,7 @@ export default function ProjectProgress({ selectedId }: ProjectProgressProps) {
               <td className="px-6 py-4 text-sm text-white">{data.details2}</td>
             </tr>
 
-            <tr className="bg-slate-900">
+            <tr className="bg-slate-950">
               <td className="px-6 py-4 text-sm text-white border-r border-gray-300">
                 {data.work3}
               </td>
@@ -143,7 +146,7 @@ export default function ProjectProgress({ selectedId }: ProjectProgressProps) {
               <td className="px-6 py-4 text-sm text-white">{data.details3}</td>
             </tr>
 
-            <tr className="bg-black">
+            <tr className="" style={{ backgroundColor: "#171D1D" }}>
               <td className="px-6 py-4 text-sm text-white border-r border-gray-300">
                 {data.work4}
               </td>

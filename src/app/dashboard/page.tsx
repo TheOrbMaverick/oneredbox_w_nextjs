@@ -56,7 +56,7 @@ export default function Dashboard() {
       <Navbar />
 
       {submittedId ? (
-        <div className="mt-20">
+        <div className="mt-20 px-0 sm:px-60 md:px-20 ">
           {/* <button
             onClick={handleBack}
             className="-mb-40 mx-10 px-4 py-2 bg-red-500 text-white rounded-md shadow hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
