@@ -4,6 +4,8 @@ import Papa from "papaparse";
 
 interface ProjectData {
   id: string;
+  contractSum: string;
+  amountPaid: string;
   work1: string;
   status1: string;
   details1: string;
@@ -43,13 +45,9 @@ export default function ProjectProgress({ selectedId }: ProjectProgressProps) {
 
   if (!data) return <p className="text-white">Loading...</p>;
 
-  const statusArray = [data.status1, data.status2, data.status3, data.status4];
-
-  const completedTasks = statusArray.filter(
-    (status) => status === "Completed"
-  ).length;
-
-  const completionPercentage = (completedTasks / statusArray.length) * 100;
+  const contractSum = parseFloat(data?.contractSum || "0");
+  const amountPaid = parseFloat(data?.amountPaid || "0");
+  const completionPercentage = contractSum > 0 ? (amountPaid / contractSum) * 100 : 0;
 
   const barColor =
     completionPercentage === 100

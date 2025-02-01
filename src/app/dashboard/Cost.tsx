@@ -90,7 +90,7 @@ export default function Cost({ selectedId }: CostProps) {
             style={{ backgroundColor: "#171D1D" }}
           >
             <p className="text-white text-xs md:text-lg xl:text-2xl text-center font-bold">
-              BALANCE OWED
+              BALANCE 
             </p>
             <p className="text-white text-sm md:text-base xl:text-xl font-normal">
               N{data.balanceOwed}
