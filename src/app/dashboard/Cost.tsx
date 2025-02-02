@@ -37,7 +37,7 @@ export default function Cost({ selectedId }: CostProps) {
       .catch((error) => console.error("Error fetching the CSV:", error));
   }, [selectedId]);
 
-  if (!data) return <p className="text-white">Loading...</p>;
+  if (!data) return <p className="text-white"></p>;
 
   return (
     <section className="bg-black flex flex-col xl:px-10 md:px-10 px-3 xl:pt-20 pt-20 sm:pb-20 pb-10 h-fit bg-cover bg-center mb-0 xl:gap-10 gap-0 ">

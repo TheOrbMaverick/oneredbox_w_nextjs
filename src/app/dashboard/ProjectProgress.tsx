@@ -43,7 +43,11 @@ export default function ProjectProgress({ selectedId }: ProjectProgressProps) {
       .catch((error) => console.error("Error fetching CSV:", error));
   }, [selectedId]);
 
-  if (!data) return <p className="text-white">Loading...</p>;
+  if (!data) return (
+    <div className="flex items-center justify-center h-screen w-screen">
+      <p className="text-white text-lg">Loading...</p>
+    </div>
+  );
 
   const contractSum = parseFloat(data?.contractSum || "0");
   const amountPaid = parseFloat(data?.amountPaid || "0");
