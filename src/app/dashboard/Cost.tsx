@@ -42,7 +42,7 @@ export default function Cost({ selectedId }: CostProps) {
   return (
     <section className="bg-black flex flex-col xl:px-10 md:px-10 px-3 xl:pt-20 pt-20 sm:pb-20 pb-10 h-fit bg-cover bg-center mb-0 xl:gap-10 gap-0 ">
       <h1 className="text-white text-sm md:text-xl font-bold mb-5">
-        Welcome, Mr. {data.name}
+        Welcome {data.name}
       </h1>
 
       <div className="flex flex-col  ">
