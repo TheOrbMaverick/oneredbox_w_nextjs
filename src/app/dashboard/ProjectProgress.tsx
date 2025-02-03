@@ -180,8 +180,8 @@ export default function ProjectProgress({ selectedId }: ProjectProgressProps) {
             <source src="/videos/sample.mp4" type="video/mp4" />
           </video>
         </div> */}
-        <p className="text-white text-base xl:text-4xl uppercase xl:mb-10 mb-5">
-          Watch your baby grow...
+        <p className="text-white text-base xl:text-4xl xl:mb-10 mb-5">
+          Captured live feed from your site.
         </p>
       </div>
     </div>
