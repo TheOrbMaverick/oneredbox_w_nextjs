@@ -183,6 +183,12 @@ export default function ProjectProgress({ selectedId }: ProjectProgressProps) {
         <p className="text-white text-base xl:text-4xl xl:mb-10 mb-5">
           Captured live feed from your site.
         </p>
+        <p className="text-white text-base xl:text-4xl xl:mb-10 mb-5">
+          To view full playlist of your project, click{" "}
+          <a href="https://www.youtube.com/watch?v=fikxL67IoXs&list=PLtVp31s9xtug5EgTrS7ceoxGSYZFi_MTV" target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
+            here
+          </a>
+        </p>
       </div>
     </div>
   );
