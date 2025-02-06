@@ -17,12 +17,13 @@ export const Hero: React.FC = () => {
     >
       {/* <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center"> */}
       <div className="flex flex-col items-center justify-center xl:w-2/5 w-full xl:p-0 p-5 relative z-10">
-        <h1 className="text-5xl xl:text-8xl font-bold text-white uppercase leading-10 xl:text-left text-center">
-          The Transparent African Construction Project Management Company{" "}
-          <span className="text-red-500">Real Time Project Monitoring on Your Dashboard</span>?
+        <h1 className="text-5xl xl:text-6xl font-bold text-white uppercase leading-10 xl:text-left text-center">
+          Your Construction Project Management Company {""}
+          <br />
+          <span className="text-red-500 lg:text-5xl">Dashoard with video feed, cost breakdown and project updates</span>
         </h1>
         <p className="mt-4 text-lg md:text-3xl text-gray-200 xl:text-left text-center mb-10">
-          Our Business is Honesty and transparency in construction.
+          Our business is honesty and transparency, construction is just the vehicle.
         </p>
 
         <button
