@@ -18,12 +18,11 @@ export const Hero: React.FC = () => {
       {/* <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center"> */}
       <div className="flex flex-col items-center justify-center xl:w-2/5 w-full xl:p-0 p-5 relative z-10">
         <h1 className="text-5xl xl:text-8xl font-bold text-white uppercase leading-10 xl:text-left text-center">
-          So you are interested in Nigerian{" "}
-          <span className="text-red-500">real estate</span>?
+          The Transparent African Construction Project Management Company{" "}
+          <span className="text-red-500">Real Time Project Monitoring on Your Dashboard</span>?
         </h1>
         <p className="mt-4 text-lg md:text-3xl text-gray-200 xl:text-left text-center mb-10">
-          Discover opportunities in construction, design, and project
-          management.
+          Our Business is Honesty and transparency in construction.
         </p>
 
         <button
