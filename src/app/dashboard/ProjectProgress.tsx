@@ -19,6 +19,7 @@ interface ProjectData {
   status4: string;
   details4: string;
   videoUrl: string;
+  playlistUrl: string;
 }
 
 interface ProjectProgressProps {
@@ -165,6 +166,9 @@ export default function ProjectProgress({ selectedId }: ProjectProgressProps) {
         {/* Depending on which video you want, just comment the other out */}
 
         {/* Youtube video */}
+        <p className="text-white text-base xl:text-4xl xl:mb-10 mb-5">
+          Most recent site update video
+        </p>
         <div className="aspect-w-16 aspect-h-9">
           <iframe
             src={data.videoUrl}
@@ -180,13 +184,10 @@ export default function ProjectProgress({ selectedId }: ProjectProgressProps) {
             <source src="/videos/sample.mp4" type="video/mp4" />
           </video>
         </div> */}
-        <p className="text-white text-base xl:text-4xl xl:mb-10 mb-5">
-          Captured live feed from your site.
-        </p>
-        <p className="text-white text-base xl:text-4xl xl:mb-10 mb-5">
-          To view full playlist of your project, click{" "}
-          <a href="https://www.youtube.com/watch?v=fikxL67IoXs&list=PLtVp31s9xtug5EgTrS7ceoxGSYZFi_MTV" target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
-            here
+
+        <p className="text-white text-base xl:mt-10 mb-5">
+          <a href={data.playlistUrl} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
+            <p> View site videos from start to date </p>
           </a>
         </p>
       </div>
