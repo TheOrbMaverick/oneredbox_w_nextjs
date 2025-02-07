@@ -20,10 +20,10 @@ export const Hero: React.FC = () => {
         <h1 className="text-5xl xl:text-6xl font-bold text-white uppercase leading-10 xl:text-left text-center">
           Your Construction Project Management Company {""}
           <br />
-          <span className="text-red-500 lg:text-5xl">Dashoard with video feed, cost breakdown and project updates</span>
+          <span className="text-red-500 lg:text-5xl">Constant video feed, cost breakdown and project updates on your Dashboard</span>
         </h1>
         <p className="mt-4 text-lg md:text-3xl text-gray-200 xl:text-left text-center mb-10">
-          Our business is honesty and transparency, construction is just the vehicle.
+          Our business is honesty and transparency, construction is the vehicle.
         </p>
 
         <button
