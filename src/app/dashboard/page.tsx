@@ -52,22 +52,20 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen borer border-white w-full overflow-x-hidden pb-20">
       <Navbar />
-
-      {submittedId ? (
-        <div className="mt-20 px-0 sm:px-60 md:px-20 ">
-          {/* <button
+      {/* sm:px-60 md:px-20 */}
+      <div className="mt-20 px-4 lg:px-24  text-white">
+        {/* <button
             onClick={handleBack}
             className="-mb-40 mx-10 px-4 py-2 bg-red-500 text-white rounded-md shadow hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
             Back
           </button> */}
-
-          <Cost selectedId={submittedId} />
-
-          <ProjectProgress selectedId={submittedId} />
-        </div>
+        <Cost selectedId={"1A"} />
+        {/* <ProjectProgress selectedId={"1A"} /> */}
+      </div>
+      {/* {submittedId ? (
       ) : (
         <div className="flex flex-grow flex-col items-center justify-center p-5">
           <div className="flex flex-col items-center p-5 rounded-lg shadow-md">
@@ -95,7 +93,7 @@ export default function Dashboard() {
             </button>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 }
