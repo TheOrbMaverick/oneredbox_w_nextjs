@@ -2,7 +2,6 @@
 import { Navbar } from "@/components/Navbar";
 import React, { useEffect, useState } from "react";
 import Cost from "./Cost";
-import ProjectProgress from "./ProjectProgress";
 import { useRouter } from "next/navigation";
 
 export default function Dashboard() {

@@ -6,22 +6,12 @@ import CircularProgress from "@/components/circular-progress-bar";
 import {
   ChartColumnDecreasing,
   ChartColumnIncreasing,
-  ChartColumnStacked,
   ChartLine,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 
-import {
-  Autoplay,
-  EffectCards,
-  Navigation,
-  Pagination,
-  Scrollbar,
-  Thumbs,
-} from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
@@ -32,6 +22,18 @@ import "swiper/css/thumbs";
 import Link from "next/link";
 
 interface ProjectData {
+  work1: string;
+  status1: string;
+  details1: string;
+  work2: string;
+  status2: string;
+  details2: string;
+  work3: string;
+  status3: string;
+  details3: string;
+  work4: string;
+  status4: string;
+  details4: string;
   id: string;
   name: string;
   structure: string;
@@ -72,63 +74,8 @@ export default function Cost({ selectedId }: CostProps) {
 
   if (!data) return <p className="text-white"></p>;
 
-  // xl:px-10 md:px-10 px-3 xl:pt-20 pt-20 sm:pb-20 pb-10 h-fit bg-cover bg-center mb-0 xl:gap-10 gap-0
-
   return (
     <section className="bg-black flex flex-col text-white">
-      {/* <div className="flex flex-col  ">
-        
-        <h2 className="text-white text-base md:text-4xl text-start uppercase xl:mb-14 mb-7 font-bold">
-          Project Summary for {data.structure}
-        </h2>
-        <div className="flex flex-row w-full justify-between  xl:gap-3 md:gap-5 gap-2">
-          <div
-            className="flex flex-col items-center justify-center xl:gap-5 gap-1 xl:w-1/3 w-1/3 h-auto py-3 px-5  shadow-lg shadow-slate-950 rounded-xl"
-            style={{ backgroundColor: "#171D1D" }}
-          >
-            <p className="text-white text-xs md:text-lg xl:text-2xl text-center font-bold">
-              CONTRACT SUM
-            </p>
-            <p className="text-white text-sm md:text-base xl:text-xl font-normal">
-              N{data.contractSum}
-            </p>
-          </div>
-
-          <div
-            className="flex flex-col items-center justify-center xl:w-1/3 w-1/3 h-auto py-3 px-5 shadow-lg shadow-slate-950 rounded-xl"
-            style={{ backgroundColor: "#171D1D" }}
-          >
-            <div className="flex flex-col items-center justify-center xl:gap-5 gap-1 xl:mb-7 mb-3">
-              <p className="text-white text-xs md:text-lg xl:text-2xl text-center font-bold">
-                AMOUNT PAID
-              </p>
-              <p className="text-white text-sm md:text-base xl:text-xl font-normal">
-                N{data.amountPaid}
-              </p>
-            </div>
-
-            <p className="text-white text-xs md:text-sm xl:text-lg text-center font-normal mb-3">
-              Last payment: <span>N{data.lastPayment}</span>
-            </p>
-
-            <p className="text-white text-xs md:text-sm xl:text-lg text-center font-normal">
-              Date: <span>{data.date}</span>
-            </p>
-          </div>
-
-          <div
-            className="flex flex-col items-center justify-center xl:gap-5 gap-1 xl:w-1/3 w-1/3 h-auto py-3 px-5 shadow-lg shadow-slate-950 rounded-xl"
-            style={{ backgroundColor: "#171D1D" }}
-          >
-            <p className="text-white text-xs md:text-lg xl:text-2xl text-center font-bold">
-              BALANCE
-            </p>
-            <p className="text-white text-sm md:text-base xl:text-xl font-normal">
-              N{data.balanceOwed}
-            </p>
-          </div>
-        </div>
-      </div> */}
       <div className="text-white mb-5 flex flex-wrap justify-between items-baseline text-2xl font-bold">
         <h3 className="bg-[#222] border py-4 px-8 rounded-2xl border-white border-opacity-20">
           Welcome <span className=" undrline text-2xl">{data.name}</span>
