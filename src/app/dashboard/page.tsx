@@ -61,39 +61,40 @@ export default function Dashboard() {
           >
             Back
           </button> */}
-        {/* <Cost selectedId={"1A"} /> */}
+        {/* <Cost selected
+                         Id={"1A"} /> */}
         {/* <ProjectProgress selectedId={"1A"} /> */}
-      </div>
-      {submittedId ? (
-        <Cost selectedId={submittedId} />
-      ) : (
-        <div className="flex flex-grow flex-col items-center justify-center p-5">
-          <div className="flex flex-col items-center p-5 rounded-lg shadow-md">
-            <label
-              htmlFor="id-input"
-              className="block sm:text-2xl text-lg font-bold text-white "
-            >
-              Enter ID:
-            </label>
+        {submittedId ? (
+          <Cost selectedId={submittedId} />
+        ) : (
+          <div className="flex flex-grow flex-col items-center justify-center p-5">
+            <div className="flex flex-col items-center p-5 rounded-lg shadow-md">
+              <label
+                htmlFor="id-input"
+                className="block sm:text-2xl text-lg font-bold text-white "
+              >
+                Enter ID:
+              </label>
 
-            <input
-              id="id-input"
-              type="text"
-              value={selectedId}
-              onChange={handleInputChange}
-              className="mt-1 mb-5 block w-full py-1 px-3 rounded-md border-gray-300 shadow-sm shadow-slate-700 focus:outline-none sm:text-xl text-base"
-              placeholder="Enter ID Number"
-            />
+              <input
+                id="id-input"
+                type="text"
+                value={selectedId}
+                onChange={handleInputChange}
+                className="mt-1 mb-5 block w-full py-1 px-3 rounded-md border-gray-300 shadow-sm shadow-slate-700 focus:outline-none sm:text-xl text-base"
+                placeholder="Enter ID Number"
+              />
 
-            <button
-              onClick={handleSubmit}
-              className="px-4 py-2 bg-black border-white border-solid border text-white rounded-md shadow hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-lg"
-            >
-              Submit
-            </button>
+              <button
+                onClick={handleSubmit}
+                className="px-4 py-2 bg-black border-white border-solid border text-white rounded-md shadow hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-lg"
+              >
+                Submit
+              </button>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
