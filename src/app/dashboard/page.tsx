@@ -61,10 +61,11 @@ export default function Dashboard() {
           >
             Back
           </button> */}
-        <Cost selectedId={"1A"} />
+        {/* <Cost selectedId={"1A"} /> */}
         {/* <ProjectProgress selectedId={"1A"} /> */}
       </div>
-      {/* {submittedId ? (
+      {submittedId ? (
+        <Cost selectedId={submittedId} />
       ) : (
         <div className="flex flex-grow flex-col items-center justify-center p-5">
           <div className="flex flex-col items-center p-5 rounded-lg shadow-md">
@@ -92,7 +93,7 @@ export default function Dashboard() {
             </button>
           </div>
         </div>
-      )} */}
+      )}
     </div>
   );
 }
