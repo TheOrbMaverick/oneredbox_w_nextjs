@@ -2,6 +2,10 @@ import { useState } from "react";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/mousewheel";
+import "swiper/css/pagination";
 
 interface IProject {
   title: string;
@@ -47,7 +51,7 @@ export default function ProjectCard({
                     style={{ height: "100%" }}
                   >
                     {images.map((item, i) => (
-                      <SwiperSlide>
+                      <SwiperSlide key={i}>
                         <div className="relative w-full h-[216px] lg:h-[300px] rounded-2xl overflow-hidden order border-white border-opacity-50">
                           <Image src={item} fill={true} alt="Image" />
                         </div>
