@@ -21,7 +21,7 @@ export default function Form() {
   function generateCaptcha() {
     const num1 = Math.floor(Math.random() * 10) + 1;
     const num2 = Math.floor(Math.random() * 10) + 1;
-    return { question: `${num1} + ${num2}`, answer: num1 + num2 };
+    return { question: `<span>&#8358;</span>{num1} + <span>&#8358;</span>{num2}`, answer: num1 + num2 };
   }
 
   const handleCaptchaChange = (token: string | null) => {
@@ -47,16 +47,16 @@ export default function Form() {
     }
 
     const message = `
-      Full Name: ${fullName}
-      Email: ${email}
-      Phone: ${phone}
-      Location: ${location}
-      Budget: ${budget}
-      Currency: ${currency}
+      Full Name: <span>&#8358;</span>{fullName}
+      Email: <span>&#8358;</span>{email}
+      Phone: <span>&#8358;</span>{phone}
+      Location: <span>&#8358;</span>{location}
+      Budget: <span>&#8358;</span>{budget}
+      Currency: <span>&#8358;</span>{currency}
     `;
 
     //Replace <YOUR_WHATSAPP_NUMBER> with your actual number
-    const whatsappUrl = `https://wa.me/+2347016639821?text=${encodeURIComponent(
+    const whatsappUrl = `https://wa.me/+2347016639821?text=<span>&#8358;</span>{encodeURIComponent(
       message
     )}`;
 
@@ -113,7 +113,7 @@ export default function Form() {
         <div className="relative mb-5 w-full">
           <label
             htmlFor="fullName"
-            className=" left-2 top-4 text-gray-500 pointer-events-none  origin-left"
+            className=" left-2 top-4 text-gray-300 text-lg font-bold pointer-events-none  origin-left"
           >
             Full Name
           </label>
@@ -131,7 +131,7 @@ export default function Form() {
         <div className="relative mb-5 w-full">
           <label
             htmlFor="location"
-            className="left-2 top-4 text-gray-500 pointer-events-none  origin-left"
+            className="left-2 top-4 text-gray-300 text-lg font-bold pointer-events-none  origin-left"
           >
             Where would you like to invest? E.g; VI, Lagos. Maitama, Abuja
           </label>
@@ -149,7 +149,7 @@ export default function Form() {
         <div className="relative mb-5 w-full">
           <label
             htmlFor=""
-            className="left-2 top-4 text-gray-500 pointer-events-none  origin-left"
+            className="left-2 top-4 text-gray-300 text-lg font-bold pointer-events-none  origin-left"
           >
             What is your range budget for investment?
           </label>
@@ -167,7 +167,7 @@ export default function Form() {
         <div className="relative mb-5 w-full">
           <label
             htmlFor=""
-            className="left-2 top-4 text-gray-500 pointer-events-none  origin-left"
+            className="left-2 top-4 text-gray-300 text-lg font-bold pointer-events-none  origin-left"
           >
             Currency{" "}
           </label>
@@ -185,7 +185,7 @@ export default function Form() {
         <div className="relative mb-5 w-full">
           <label
             htmlFor="email"
-            className="left-2 top-4 text-gray-500 pointer-events-none  origin-left"
+            className="left-2 top-4 text-gray-300 text-lg font-bold pointer-events-none  origin-left"
           >
             Email
           </label>
@@ -203,7 +203,7 @@ export default function Form() {
         <div className="relative mb-5 w-full">
           <label
             htmlFor="phone"
-            className="left-2 top-4 text-gray-500 pointer-events-none  origin-left"
+            className="left-2 top-4 text-gray-300 text-lg font-bold pointer-events-none  origin-left"
           >
             Phone Number
           </label>
@@ -214,13 +214,13 @@ export default function Form() {
             id="phone"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            className="text-black w-full py-4 px-2 border border-black rounded-lg focus:outline-none"
+            className="text-black w-full py-4 px-2 border border-black shadow-lg rounded-lg focus:outline-none"
           />
         </div>
 
         <div className="relative mb-5 w-full">
           {/* Anti-robot check */}
-          <label htmlFor="captcha" className="text-gray-500">
+          <label htmlFor="captcha" className="text-gray-300 text-lg font-bold">
             Solve this: {captcha.question}
           </label>
           <input
@@ -253,7 +253,7 @@ export default function Form() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full py-4 px-2 border bg-black rounded-full mb-5 text-white font-bold uppercase"
+          className="w-full py-4 px-2 border bg-[#222] rounded-xl mb-5 text-white font-bold uppercase"
         >
           {loading ? "Sending..." : "SEND"}
         </button>
