@@ -43,14 +43,14 @@ export const Navbar: React.FC = () => {
       </button>
 
       <ul
-        className={`<span>&#8358;</span>{
+        className={`${
           menuOpen ? "flex" : "hidden"
         } xl:flex flex-col xl:flex-row absolute lg:static right-10 top-3/4 top items-center space-y-4 xl:space-y-0 space-x-0 xl:space-x-8 ml-auto list-none m-0 p-0 xl:pl-12`}
       >
         {navItems.map((item) => (
           <li
             key={item.name}
-            className={`cursor-pointer font-bold   <span>&#8358;</span>{
+            className={`cursor-pointer font-bold   ${
               pathname === item.path
                 ? "text-red-500"
                 : "text-white hover:text-red-500"

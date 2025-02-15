@@ -53,7 +53,7 @@ export default function Areas() {
           <p>Price</p>
         </div>
 
-        <div className="h-[400px] relative bordr overflow-y-scroll [&::-webkit-scrollbar]:hidden border border-t-transparent border-white border-opacity-25 pb-8 rounded-b-lg">
+        <div className="max-h-[400px] relative bordr overflow-y-scroll [&::-webkit-scrollbar]:hidden border border-t-transparent border-white border-opacity-25 pb-8 rounded-b-lg">
           <div ref={tableRef}>
             {filter !== "All" ? (
               <>
