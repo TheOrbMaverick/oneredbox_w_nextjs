@@ -8,7 +8,8 @@ export default function Testimonials() {
   const testimonials = [
     {
       image: "/images/wole.jpeg",
-      testimonial: "In our experience working with Oneredbox, we find them to be available to patiently work through several iterations of a project to achieve the desired quality of output in the end. The 3D renders they produced are of high quality",
+      testimonial:
+        "In our experience working with Oneredbox, we find them to be available to patiently work through several iterations of a project to achieve the desired quality of output in the end. The 3D renders they produced are of high quality",
       name: "Wole Olabanji - Neoterra Projects",
     },
     {
@@ -18,7 +19,8 @@ export default function Testimonials() {
     },
     {
       image: "/images/stephen.jpeg",
-      testimonial: "Oneredbox has consistently supported and delivered on various projects for us. Over time, we have found that your approach to exemplary work is unbeatable. We appreciate your time, patience, commitment, dedication to meet our deadlines and are glad to refer you to prospective clients.",
+      testimonial:
+        "Oneredbox has consistently supported and delivered on various projects for us. Over time, we have found that your approach to exemplary work is unbeatable. We appreciate your time, patience, commitment, dedication to meet our deadlines and are glad to refer you to prospective clients.",
       name: "Stephen Kolo - Design Continuum Architects",
     },
   ];
@@ -34,16 +36,17 @@ export default function Testimonials() {
           autoPlay
           interval={4500}
           infiniteLoop
-          showArrows={false}
+          showArrows={true}
           showStatus={false}
           showThumbs={false}
-          centerMode
+          centerMode={true}
           centerSlidePercentage={100}
+          width={"600px"}
         >
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="flex flex-col mb-10 items-center text-center"
+              className="flex flex-col w-full px-12 lg:max-w-[600px] mb-10 items-center text-center"
             >
               <div className="w-20 h-20 sm:w-32 sm:h-32 mb-4">
                 <Image
@@ -55,7 +58,7 @@ export default function Testimonials() {
                 />
               </div>
 
-              <p className="text-white text-center text-base sm:text-2xl mb-4">
+              <p className="text-white text-center text-base sm:text-md mb-4">
                 {testimonial.testimonial}
               </p>
               <p className="text-base text-center sm:text-2xl font-bold text-orange-300">

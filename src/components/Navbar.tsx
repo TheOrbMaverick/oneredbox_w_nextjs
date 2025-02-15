@@ -22,7 +22,7 @@ export const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className="fixed w-full flex justify-between items-center px-8 py-4 bg-black z-50">
+    <nav className=" w-full flex justify-between items-center px-8 py-4 bg-black z-50">
       <div className="flex items-center">
         <Link href="/">
           <Image
@@ -36,7 +36,7 @@ export const Navbar: React.FC = () => {
       </div>
 
       <button
-        className="xl:hidden fixed top-4 right-4 z-50 text-white rounded-full"
+        className="xl:hidden fxed top-4 right-4 z-50 text-white rounded-full"
         onClick={() => setMenuOpen(!menuOpen)}
       >
         <FontAwesomeIcon icon={menuOpen ? faXmark : faBars} size="lg" />
