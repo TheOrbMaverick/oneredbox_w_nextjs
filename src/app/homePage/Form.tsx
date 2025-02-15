@@ -21,7 +21,7 @@ export default function Form() {
   function generateCaptcha() {
     const num1 = Math.floor(Math.random() * 10) + 1;
     const num2 = Math.floor(Math.random() * 10) + 1;
-    return { question: `<span>&#8358;</span>{num1} + <span>&#8358;</span>{num2}`, answer: num1 + num2 };
+    return { question: `${num1} + ${num2}`, answer: num1 + num2 };
   }
 
   const handleCaptchaChange = (token: string | null) => {
@@ -47,16 +47,16 @@ export default function Form() {
     }
 
     const message = `
-      Full Name: <span>&#8358;</span>{fullName}
-      Email: <span>&#8358;</span>{email}
-      Phone: <span>&#8358;</span>{phone}
-      Location: <span>&#8358;</span>{location}
-      Budget: <span>&#8358;</span>{budget}
-      Currency: <span>&#8358;</span>{currency}
+      Full Name: ${fullName}
+      Email: ${email}
+      Phone: ${phone}
+      Location: ${location}
+      Budget: ${budget}
+      Currency: ${currency}
     `;
 
     //Replace <YOUR_WHATSAPP_NUMBER> with your actual number
-    const whatsappUrl = `https://wa.me/+2347016639821?text=<span>&#8358;</span>{encodeURIComponent(
+    const whatsappUrl = `https://wa.me/+2347016639821?text=${encodeURIComponent(
       message
     )}`;
 
