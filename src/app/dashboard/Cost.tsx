@@ -105,7 +105,7 @@ export default function Cost({ selectedId }: CostProps) {
                 <div className="space-y-5">
                   <h3 className="text-xl font-bold">Contract Sum</h3>
                   <p className="text-xl lg:text-2xl font-extrabold">
-                    $ {data.contractSum}
+                    <span>&#8358;</span> {data.contractSum}
                   </p>
                 </div>
                 <div className="w-[80px]">
@@ -124,7 +124,7 @@ export default function Cost({ selectedId }: CostProps) {
               <div className="flex items-center justify-between">
                 <div className="space-y-5">
                   <h3 className="text-xl font-bold">Funds Paid</h3>
-                  <p className="text-2xl font-extrabold">$ {data.amountPaid}</p>
+                  <p className="text-2xl font-extrabold"><span>&#8358;</span> {data.amountPaid}</p>
                 </div>
                 <div className="w-[80px]">
                   <CircularProgress
@@ -143,7 +143,7 @@ export default function Cost({ selectedId }: CostProps) {
                 <div className="space-y-5">
                   <h3 className="text-xl font-bold">Amount Due</h3>
                   <p className="text-xl lg:text-2xl font-extrabold">
-                    $ {data.contractSum}
+                    <span>&#8358;</span> {data.contractSum}
                   </p>
                 </div>
                 <div className="w-[80px]">
@@ -160,7 +160,7 @@ export default function Cost({ selectedId }: CostProps) {
                 <ChartColumnStacked className="stroke-green-500" />
               </div>
               <h3 className="text-xl textcenter font-bold">Last Payment</h3>
-              <p className="text-2xl font-extrabold">$ {data.lastPayment}</p>
+              <p className="text-2xl font-extrabold"><span>&#8358;</span> {data.lastPayment}</p>
             </div> */}
           </div>
           <h3 className="mt-6 mb-3 font-bold text-2xl">Project Updates</h3>
@@ -247,7 +247,7 @@ export default function Cost({ selectedId }: CostProps) {
           )}
           <div className="flex gap-4 justify-center border border-white border-opacity-10 bg-[#222] shadow-xl px-4 py-2 rounded-lg mt-4 font-semibold">
             <p
-              className={`flex-1 ${
+              className={`flex-1 <span>&#8358;</span>{
                 isVideo &&
                 "border-opacity-40 bg-[#222] border border-white shadow-lg"
               } rounded-md text-center py-1 cursor-pointer transition-all duration-500`}
@@ -256,7 +256,7 @@ export default function Cost({ selectedId }: CostProps) {
               Video
             </p>
             <p
-              className={`flex-1 ${
+              className={`flex-1 <span>&#8358;</span>{
                 !isVideo &&
                 "border-opacity-40 bg-[#222] border border-white shadow-lg"
               }    rounded-md text-center py-1 cursor-pointer transition-all duration-500`}

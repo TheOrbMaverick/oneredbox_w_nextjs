@@ -30,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} ${geistMono.variable} antialiased`}>
+      <body className={`<span>&#8358;</span>{poppins.variable} <span>&#8358;</span>{geistMono.variable} antialiased`}>
         {children}
       </body>
     </html>

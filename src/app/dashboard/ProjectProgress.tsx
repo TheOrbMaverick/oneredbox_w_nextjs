@@ -80,7 +80,7 @@ export default function ProjectProgress({ selectedId }: ProjectProgressProps) {
               <div
                 className="flex mb-2 text-xs leading-none font-semibold justify-center text-center whitespace-nowrap align-center text-teal-100"
                 style={{
-                  width: `${completionPercentage}%`,
+                  width: `<span>&#8358;</span>{completionPercentage}%`,
                 }}
               >
                 <div

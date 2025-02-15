@@ -62,7 +62,7 @@ export default function Areas() {
                     >
                       <p>{item.state}</p>
                       <p>{item.area}</p>
-                      <p>$100</p>
+                      <p><span>&#8358;</span>100</p>
                     </div>
                   ))}
               </>
@@ -75,7 +75,7 @@ export default function Areas() {
                   >
                     <p>{item.state}</p>
                     <p>{item.area}</p>
-                    <p>$100</p>
+                    <p><span>&#8358;</span>100</p>
                   </div>
                 ))}
               </>

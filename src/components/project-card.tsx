@@ -62,7 +62,7 @@ export default function ProjectCard({
               </div>
               <div className="flex gap-4  justify-center boder border-white border-opacity-10 bg-[#222] shadow-xl px-4 py-2 rounded-lg font-semibold">
                 <p
-                  className={`flex-1 ${
+                  className={`flex-1 <span>&#8358;</span>{
                     isVideo && "border-opacity-40 border border-white shadow-lg"
                   } rounded-md text-center py-1 cursor-pointer transition-all duration-300`}
                   onClick={() => setIsVideo(true)}
@@ -70,7 +70,7 @@ export default function ProjectCard({
                   Video
                 </p>
                 <p
-                  className={`flex-1 ${
+                  className={`flex-1 <span>&#8358;</span>{
                     !isVideo &&
                     "border-opacity-40  border border-white shadow-lg"
                   }    rounded-md text-center py-1 cursor-pointer transition-all duration-300`}
