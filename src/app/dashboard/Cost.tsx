@@ -182,38 +182,38 @@ export default function Cost({ selectedId }: CostProps) {
           </div>
           <h3 className="mt-6 mb-3 font-bold text-2xl">Project Updates</h3>
           <div className="boder rounded-t-2xl text-sm lg:text-base overflow-hidden">
-            <div className="grid grid-cols-4 font-bold text-xl px-5 py-3 border-b border-white border-opacity-20 bg-[#222]">
-              <p>S/N</p>
-              <p>Work</p>
-              <p>Status</p>
-              <p>Details</p>
+            <div className="grid grid-cols-7 font-bold sm:text-xl px-5 py-3 border-b border-white border-opacity-20 bg-[#222]">
+              <p className="col-span-1">S/N</p>
+              <p className="col-span-2">Work</p>
+              <p className="col-span-2">Status</p>
+              <p className="col-span-2">Details</p>
             </div>
 
-            <div className="grid grid-cols-4 px-5 py-2">
-              <p>1</p>
-              <p>{data.work1}</p>
-              <p>{data.status1}</p>
-              <p>{data.details1}</p>
+            <div className="grid text-xs sm:text-base grid-cols-7 px-5 py-2">
+              <p className="col-span-1">1</p>
+              <p className="borer col-span-2">{data.work1}</p>
+              <p className="borer col-span-2">{data.status1}</p>
+              <p className="borer col-span-2">{data.details1}</p>
             </div>
 
-            <div className="grid grid-cols-4 px-5 py-2">
-              <p>2</p>
-              <p>{data.work2}</p>
-              <p>{data.status2}</p>
-              <p>{data.details2}</p>
+            <div className="grid text-xs sm:text-base grid-cols-7 px-5 py-2">
+              <p className="col-span-1 ">2</p>
+              <p className="col-span-2">{data.work2}</p>
+              <p className="col-span-2">{data.status2}</p>
+              <p className="col-span-2">{data.details2}</p>
             </div>
 
-            <div className="grid grid-cols-4 px-5 py-2">
-              <p>3</p>
-              <p>{data.work3}</p>
-              <p>{data.status3}</p>
-              <p>{data.details3}</p>
+            <div className="grid  text-xs sm:text-base grid-cols-7 px-5 py-2">
+              <p className="col-span-1">3</p>
+              <p className="col-span-2">{data.work3}</p>
+              <p className="col-span-2">{data.status3}</p>
+              <p className="col-span-2">{data.details3}</p>
             </div>
-            <div className="grid grid-cols-4 px-5 py-2">
-              <p>4</p>
-              <p>{data.work4}</p>
-              <p>{data.status4}</p>
-              <p>{data.details4}</p>
+            <div className="grid text-xs sm:text-base grid-cols-7 px-5 py-2">
+              <p className="col-span-1">4</p>
+              <p className="col-span-2">{data.work4}</p>
+              <p className="col-span-2">{data.status4}</p>
+              <p className="col-span-2">{data.details4}</p>
             </div>
           </div>
         </div>
