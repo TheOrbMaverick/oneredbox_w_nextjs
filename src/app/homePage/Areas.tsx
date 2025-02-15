@@ -50,7 +50,7 @@ export default function Areas() {
         <div className="text-2xl pb-6 shadow-lg shadow-[#22]  font-bold grid grid-cols-3 text-center justify-between py-3 border-b border-white border-opacity-25 px-5 bg-[#222] rounded-t-lg">
           <p>State</p>
           <p>Area</p>
-          <p>Price</p>
+          <p>Price/sq.m</p>
         </div>
 
         <div className="max-h-[400px] relative bordr overflow-y-scroll [&::-webkit-scrollbar]:hidden border border-t-transparent border-white border-opacity-25 pb-8 rounded-b-lg">
@@ -69,7 +69,7 @@ export default function Areas() {
                       <p>{item.state}</p>
                       <p>{item.area}</p>
                       <p>
-                        <span>&#8358;</span>100
+                        ₦100
                       </p>
                     </div>
                   ))}
@@ -87,7 +87,7 @@ export default function Areas() {
                     <p className="border-x border-white border-opacity-20">
                       {item.area}
                     </p>
-                    <p>$100</p>
+                    <p>₦100</p>
                   </div>
                 ))}
               </>
