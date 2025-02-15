@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Papa from "papaparse";
-// import SemiCircleProgress from "@/components/circular-progress-bar";
 import CircularProgress from "@/components/circular-progress-bar";
 import {
   ChartColumnDecreasing,
@@ -42,6 +41,11 @@ interface ProjectData {
   lastPayment: string;
   date: string;
   balanceOwed: string;
+  location: string;
+  about: string;
+  videoUrl: string;
+  imageUrl1: string;
+  imageUrl2: string;
 }
 
 interface CostProps {
@@ -59,7 +63,6 @@ function getPercent(amount: string, total: string): number {
 
 export default function Cost({ selectedId }: CostProps) {
   const [data, setData] = useState<ProjectData | null>(null);
-  // const [thumbSwiper, setThumbSwiper] = useState<any>(null);
   const [isVideo, setIsVideo] = useState<boolean>(true);
 
   useEffect(() => {
@@ -92,7 +95,7 @@ export default function Cost({ selectedId }: CostProps) {
           href={"#"}
           className="border hidden lg:block border-white border-opacity-30 text-base px-6 py-2 rounded-lg shadow-sm bg-black shadow-gray-400"
         >
-          Site Videos
+          Site Media
         </Link>
       </div>
       <div className="flex gap-8 bor flex-col lg:flex-row">
@@ -176,13 +179,6 @@ export default function Cost({ selectedId }: CostProps) {
                 </div>
               </div>
             </div>
-            {/* <div className="px-6 py-7 bg-[#222] shadow-xl border border-white border-opacity-10 bg-opacity-20 rounded-xl space-y-3 flex-1">
-              <div className="w-14 h-14 bg-green-500 bg-opacity-20 border border-green-400 border-opacity-50 flex items-center justify-center rounded-full">
-                <ChartColumnStacked className="stroke-green-500" />
-              </div>
-              <h3 className="text-xl textcenter font-bold">Last Payment</h3>
-              <p className="text-2xl font-extrabold"><span>&#8358;</span> {data.lastPayment}</p>
-            </div> */}
           </div>
           <h3 className="mt-6 mb-3 font-bold text-2xl">Project Updates</h3>
           <div className="boder rounded-t-2xl text-sm lg:text-base overflow-hidden">
@@ -229,14 +225,15 @@ export default function Cost({ selectedId }: CostProps) {
                 href={"#"}
                 className="border lg:hidden inline-block mb-4 border-white border-opacity-30 text-base px-6 py-2 rounded-lg shadow-sm bg-black shadow-gray-400"
               >
-                Site Videos
+                Site Media
               </Link>
               <div className="relative w-full h-[200px] sm:h-[400px] lg:h-[200px] rounded-2xl overflow-hidden border border-white border-opacity-50">
-                <video
-                  src="/videos/sample.mp4"
-                  className="w-full h-full object-cover"
-                  controls
-                />
+                <iframe
+                    src={data.videoUrl}
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
               </div>
             </>
           ) : (
@@ -244,7 +241,7 @@ export default function Cost({ selectedId }: CostProps) {
               <SwiperSlide>
                 <div className="relative w-full h-[200px] sm:h-[400px] lg:h-[200px] rounded-2xl overflow-hidden border border-white border-opacity-50">
                   <Image
-                    src={"/images/construction.png"}
+                    src={data.imageUrl1}
                     fill={true}
                     alt="Image"
                   />
@@ -253,7 +250,7 @@ export default function Cost({ selectedId }: CostProps) {
               <SwiperSlide>
                 <div className="relative w-full h-[200px] sm:h-[400px] lg:h-[200px] rounded-2xl overflow-hidden border border-white border-opacity-50">
                   <Image
-                    src={"/images/construct.jpg"}
+                    src={"/images/heroImg.jpg"}
                     fill={true}
                     alt="Image"
                   />
@@ -261,14 +258,14 @@ export default function Cost({ selectedId }: CostProps) {
               </SwiperSlide>
               <SwiperSlide>
                 <div className="relative w-full h-[200px] sm:h-[400px] lg:h-[200px] rounded-2xl overflow-hidden border border-white border-opacity-50">
-                  <Image src={"/images/heroImg.jpg"} fill={true} alt="Image" />
+                  <Image src={"/images/construction.png"} fill={true} alt="Image" />
                 </div>
               </SwiperSlide>
             </Swiper>
           )}
           <div className="flex gap-4 justify-center border border-white border-opacity-10 bg-[#222] shadow-xl px-4 py-2 rounded-lg mt-4 font-semibold">
             <p
-              className={`flex-1 <span>&#8358;</span>{
+              className={`flex-1 ${
                 isVideo &&
                 "border-opacity-40 bg-[#222] border border-white shadow-lg"
               } rounded-md text-center py-1 cursor-pointer transition-all duration-500`}
@@ -277,7 +274,7 @@ export default function Cost({ selectedId }: CostProps) {
               Video
             </p>
             <p
-              className={`flex-1 <span>&#8358;</span>{
+              className={`flex-1 ${
                 !isVideo &&
                 "border-opacity-40 bg-[#222] border border-white shadow-lg"
               }    rounded-md text-center py-1 cursor-pointer transition-all duration-500`}
@@ -293,83 +290,19 @@ export default function Cost({ selectedId }: CostProps) {
             </h4>
             <div className="space-y-3 text-base lg:text-md px-4 pt-4">
               <p>
-                <span className="font-bold text-xl">Client:</span> Client Name
+                <span className="font-bold text-xl">Client:</span> {data.name}
               </p>
               <p>
-                <span className="font-bold text-xl">Location:</span> Project
-                Location
+                <span className="font-bold text-xl">Location:</span> {data.location}
               </p>
               <p className="flex lg:block items-start gap-2">
                 <span className="font-bold text-xl leading-none">About:</span>{" "}
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Deleniti suscipit veritatis totam quis amet modi dolorem, ipsam
-                voluptatibus quo ratione, perspiciatis in sapiente dicta sit ea
-                quidem excepturi atque. Maxime!
+                {data.about}
               </p>
             </div>
           </div>
         </div>
       </div>
-      {/*  */}
-      {/* <div className="flex gap-12 flex-col-reverse lg:flex-row mt-8">
-        <div className="lg:w-1/2 bordr rounded-xl h-[400px]">
-          <video
-            src="/videos/sample.mp4"
-            className="w-full h-full rounded-xl object-cover shadow-md border border-white border-opacity-50 shadow-[#ffffff22]"
-            controls
-            autoPlay
-          ></video>
-        </div>
-        <div className="w-full lg:w-1/2 h-[200px] lg:h-[400px] relative">
-          <div className="next absolute top-1/2 bg-white right-0 translate-x-1/4 z-20 bg-opacity-65 rounded-full w-12 h-12 flex justify-center items-center -translate-y-1/2">
-            <ChevronRight className="stroke-[#222]" size={48} />
-          </div>
-          <div className="prev absolute top-1/2 bg-white z-20 rounded-full bg-opacity-65 -translate-x-1/4 w-12 h-12 flex justify-center items-center -translate-y-1/2">
-            <ChevronLeft className="stroke-[#222]" size={48} />
-          </div>
-          <div className="h-full boder">
-            <Swiper
-              modules={[Navigation, Pagination, Scrollbar, Autoplay]}
-              pagination={{ enabled: true, clickable: true }}
-              navigation={{ enabled: true, nextEl: ".next", prevEl: ".prev" }}
-              scrollbar={{ enabled: true }}
-              // autoplay={{ delay: 4000 }}
-            >
-              <SwiperSlide style={{ width: "100%" }}>
-                <div className="relative bordr w-full h-[200px] sm:h-[400px] lg:h-[400px] rounded-2xl overflow-hidden border border-white border-opacity-50">
-                  <Image
-                    src={"/images/construction.png"}
-                    fill={true}
-                    alt="Image"
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full h-[200px] sm:h-[400px] lg:h-[400px] rounded-2xl overflow-hidden border border-white border-opacity-50">
-                  <Image
-                    src={"/images/construct.jpg"}
-                    fill={true}
-                    alt="Image"
-                    className="objext-cover"
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full h-[200px] sm:h-[400px] lg:h-[400px] rounded-2xl overflow-hidden border border-white border-opacity-50">
-                  <Image
-                    src={"/images/heroImg.jpg"}
-                    fill={true}
-                    alt="Image"
-                    className="objext-cover"
-                  />
-                </div>
-              </SwiperSlide>
-            </Swiper>
-          </div>
-        </div>
-      </div> */}
-      {/*  */}
-      {/* <div className="text-white">{JSON.stringify(data)}</div> */}
     </section>
   );
 }
