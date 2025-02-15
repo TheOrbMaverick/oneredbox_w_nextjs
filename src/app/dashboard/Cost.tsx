@@ -50,6 +50,13 @@ interface CostProps {
 
 const date = new Date();
 
+function getPercent(amount: string, total: string): number {
+  return (
+    (Number(amount.split(",").join("")) / Number(total.split(",").join(""))) *
+    100
+  );
+}
+
 export default function Cost({ selectedId }: CostProps) {
   const [data, setData] = useState<ProjectData | null>(null);
   const [thumbSwiper, setThumbSwiper] = useState<any>(null);
@@ -96,7 +103,7 @@ export default function Cost({ selectedId }: CostProps) {
               {data.date}
             </p>
           </div>
-          <div className="flex gap-8 flex-wrap">
+          <div className="flex gap-8 flex-wrap lg:items-center">
             <div className="px-6 py-7 bg-[#222] shadow-xl border border-white border-opacity-10 bg-opacity-20 rounded-xl space-y-3 flex-1">
               <div className="w-14 h-14 bg-green-500 bg-opacity-20 rounded-full flex items-center justify-center">
                 <ChartColumnIncreasing className="stroke-green-500" />
@@ -105,7 +112,7 @@ export default function Cost({ selectedId }: CostProps) {
                 <div className="space-y-5">
                   <h3 className="text-xl font-bold">Contract Sum</h3>
                   <p className="text-xl lg:text-2xl font-extrabold">
-                    <span>&#8358;</span> {data.contractSum}
+                    ₦ {data.contractSum}
                   </p>
                 </div>
                 <div className="w-[80px]">
@@ -118,21 +125,31 @@ export default function Cost({ selectedId }: CostProps) {
               </div>
             </div>
             <div className="px-6 py-7 bg-[#222] shadow-xl border border-white border-opacity-10 bg-opacity-20 rounded-xl space-y-3 flex-1">
-              <div className="w-14 h-14  bg-green-500 border border-green-400 border-opacity-50 bg-opacity-15 rounded-full flex items-center justify-center stroke-green-500">
-                <ChartLine className="stroke-green-500 " />
+              <div className="flex items-center justify-between">
+                <div className="w-14 h-14  bg-green-500 border border-green-400 border-opacity-50 bg-opacity-15 rounded-full flex items-center justify-center stroke-green-500">
+                  <ChartLine className="stroke-green-500 " />
+                </div>
               </div>
               <div className="flex items-center justify-between">
                 <div className="space-y-5">
                   <h3 className="text-xl font-bold">Funds Paid</h3>
-                  <p className="text-2xl font-extrabold"><span>&#8358;</span> {data.amountPaid}</p>
+                  <p className="text-2xl font-extrabold">₦ {data.amountPaid}</p>
                 </div>
                 <div className="w-[80px]">
                   <CircularProgress
-                    percentage={50}
-                    color="#008000"
+                    percentage={getPercent(data.amountPaid, data.contractSum)}
+                    color={
+                      getPercent(data.amountPaid, data.contractSum) > 50
+                        ? "#008000"
+                        : "#98fb98"
+                    }
                     colorOpacity="#00800080"
                   />
                 </div>
+              </div>
+              <div className="flex justify-between items-center pt-3">
+                <span className=" font-medium">Last payment:</span>{" "}
+                <p className="font-semibold text-lg">₦ {data.lastPayment}</p>
               </div>
             </div>
             <div className="px-6 py-7 bg-[#222] shadow-xl border border-white border-opacity-10 bg-opacity-20 rounded-xl space-y-3 flex-1">
@@ -143,13 +160,17 @@ export default function Cost({ selectedId }: CostProps) {
                 <div className="space-y-5">
                   <h3 className="text-xl font-bold">Amount Due</h3>
                   <p className="text-xl lg:text-2xl font-extrabold">
-                    <span>&#8358;</span> {data.contractSum}
+                    ₦ {data.balanceOwed}
                   </p>
                 </div>
                 <div className="w-[80px]">
                   <CircularProgress
-                    percentage={40}
-                    color="#FF0000"
+                    percentage={getPercent(data.balanceOwed, data.contractSum)}
+                    color={
+                      getPercent(data.amountPaid, data.contractSum) > 50
+                        ? "#ff0000"
+                        : "#d98880"
+                    }
                     colorOpacity="#FF000080"
                   />
                 </div>

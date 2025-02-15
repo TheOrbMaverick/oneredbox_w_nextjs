@@ -3,10 +3,14 @@ import React from "react";
 interface CircularProgressProps {
   percentage: number;
   color: string;
-  colorOpacity:string;
+  colorOpacity: string;
 }
 
-const CircularProgress: React.FC<CircularProgressProps> = ({ percentage, color,colorOpacity }) => {
+const CircularProgress: React.FC<CircularProgressProps> = ({
+  percentage,
+  color,
+  colorOpacity,
+}) => {
   const radius = 40; // Radius of the circle
   const strokeWidth = 8; // Stroke width
   const circumference = 2 * Math.PI * radius; // Circumference of the circle
