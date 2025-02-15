@@ -3,7 +3,7 @@ import { Hero } from "./Hero";
 import Testimonials from "./Testimonials";
 import Form from "./Form";
 import { Navbar } from "@/components/Navbar";
-import NigerianMapWrapper from "./NigerianMapWrapper";
+// import NigerianMapWrapper from "./NigerianMapWrapper";
 import Areas from "./Areas";
 
 export default function HomePage() {

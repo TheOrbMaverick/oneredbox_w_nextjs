@@ -48,7 +48,7 @@ interface CostProps {
   selectedId: string;
 }
 
-const date = new Date();
+// const date = new Date();
 
 function getPercent(amount: string, total: string): number {
   return (
@@ -59,7 +59,7 @@ function getPercent(amount: string, total: string): number {
 
 export default function Cost({ selectedId }: CostProps) {
   const [data, setData] = useState<ProjectData | null>(null);
-  const [thumbSwiper, setThumbSwiper] = useState<any>(null);
+  // const [thumbSwiper, setThumbSwiper] = useState<any>(null);
   const [isVideo, setIsVideo] = useState<boolean>(true);
 
   useEffect(() => {
@@ -137,7 +137,7 @@ export default function Cost({ selectedId }: CostProps) {
                 </div>
                 <div className="w-[80px]">
                   <CircularProgress
-                    percentage={getPercent(data.amountPaid, data.contractSum)}
+                    percentage={Math.round(getPercent(data.amountPaid, data.contractSum))}
                     color={
                       getPercent(data.amountPaid, data.contractSum) > 50
                         ? "#008000"
@@ -165,7 +165,7 @@ export default function Cost({ selectedId }: CostProps) {
                 </div>
                 <div className="w-[80px]">
                   <CircularProgress
-                    percentage={getPercent(data.balanceOwed, data.contractSum)}
+                    percentage={Math.round(getPercent(data.balanceOwed, data.contractSum))}
                     color={
                       getPercent(data.amountPaid, data.contractSum) > 50
                         ? "#ff0000"

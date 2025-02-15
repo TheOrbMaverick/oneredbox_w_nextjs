@@ -1,6 +1,6 @@
 "use client";
 import AreaFilter from "@/components/area-filter";
-import { ChevronDown } from "lucide-react";
+// import { ChevronDown } from "lucide-react";
 import React, { useRef, useState } from "react";
 
 const areas = [
