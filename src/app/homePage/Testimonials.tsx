@@ -31,42 +31,49 @@ export default function Testimonials() {
         HEAR FROM OUR CLIENTS
       </h1>
 
-      <div className="flex items-center justify-center">
-        <Carousel
-          autoPlay
-          interval={4500}
-          infiniteLoop
-          showArrows={true}
-          showStatus={false}
-          showThumbs={false}
-          centerMode={true}
-          centerSlidePercentage={100}
-          width={"600px"}
-        >
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className="flex flex-col w-full px-12 lg:max-w-[600px] mb-10 items-center text-center"
-            >
-              <div className="w-20 h-20 sm:w-32 sm:h-32 mb-4">
-                <Image
-                  src={testimonial.image}
-                  className=" rounded-full object-cover"
-                  alt=""
-                  width={150}
-                  height={150}
-                />
-              </div>
+      <div className="w-[400p  flex justify-center ">
+        <div className="w-full">
+          <Carousel
+            autoPlay
+            interval={4500}
+            infiniteLoop
+            showArrows={true}
+            showStatus={false}
+            showThumbs={false}
+            centerMode={true}
+            centerSlidePercentage={100}
+            className=""
+            emulateTouch={true}
+            swipeable={true}
+            // dynamicHeight={true}
+          >
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className="flex flex-col w-full  mb-10 items-center text-center"
+              >
+                <div className="w-[400px] px-4 lg:w-[600px] flex flex-col items-center text-center">
+                  <div className="w-20 h-20 sm:w-32 sm:h-32 mb-4">
+                    <Image
+                      src={testimonial.image}
+                      className=" rounded-full object-cover"
+                      alt=""
+                      width={150}
+                      height={150}
+                    />
+                  </div>
 
-              <p className="text-white text-center text-base sm:text-md mb-4">
-                {testimonial.testimonial}
-              </p>
-              <p className="text-base text-center sm:text-2xl font-bold text-orange-300">
-                {testimonial.name}
-              </p>
-            </div>
-          ))}
-        </Carousel>
+                  <p className="text-white text-center text-base sm:text-md mb-4">
+                    {testimonial.testimonial}
+                  </p>
+                  <p className="text-base text-center sm:text-2xl font-bold text-orange-300">
+                    {testimonial.name}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </Carousel>
+        </div>
       </div>
     </div>
   );

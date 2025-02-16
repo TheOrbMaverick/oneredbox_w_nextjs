@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Papa from "papaparse";
-// import SemiCircleProgress from "@/components/circular-progress-bar";
 import CircularProgress from "@/components/circular-progress-bar";
 import {
   ChartColumnDecreasing,
@@ -42,6 +41,11 @@ interface ProjectData {
   lastPayment: string;
   date: string;
   balanceOwed: string;
+  location: string;
+  about: string;
+  videoUrl: string;
+  imageUrl1: string;
+  imageUrl2: string;
 }
 
 interface CostProps {
@@ -59,7 +63,6 @@ function getPercent(amount: string, total: string): number {
 
 export default function Cost({ selectedId }: CostProps) {
   const [data, setData] = useState<ProjectData | null>(null);
-  // const [thumbSwiper, setThumbSwiper] = useState<any>(null);
   const [isVideo, setIsVideo] = useState<boolean>(true);
 
   useEffect(() => {
@@ -92,7 +95,7 @@ export default function Cost({ selectedId }: CostProps) {
           href={"#"}
           className="border hidden lg:block border-white border-opacity-30 text-base px-6 py-2 rounded-lg shadow-sm bg-black shadow-gray-400"
         >
-          Site Videos
+          Site Media
         </Link>
       </div>
       <div className="flex gap-8 bor flex-col lg:flex-row">
@@ -137,7 +140,9 @@ export default function Cost({ selectedId }: CostProps) {
                 </div>
                 <div className="w-[80px]">
                   <CircularProgress
-                    percentage={Math.round(getPercent(data.amountPaid, data.contractSum))}
+                    percentage={Math.round(
+                      getPercent(data.amountPaid, data.contractSum)
+                    )}
                     color={
                       getPercent(data.amountPaid, data.contractSum) > 50
                         ? "#008000"
@@ -165,7 +170,9 @@ export default function Cost({ selectedId }: CostProps) {
                 </div>
                 <div className="w-[80px]">
                   <CircularProgress
-                    percentage={Math.round(getPercent(data.balanceOwed, data.contractSum))}
+                    percentage={Math.round(
+                      getPercent(data.balanceOwed, data.contractSum)
+                    )}
                     color={
                       getPercent(data.amountPaid, data.contractSum) > 50
                         ? "#ff0000"
@@ -176,48 +183,41 @@ export default function Cost({ selectedId }: CostProps) {
                 </div>
               </div>
             </div>
-            {/* <div className="px-6 py-7 bg-[#222] shadow-xl border border-white border-opacity-10 bg-opacity-20 rounded-xl space-y-3 flex-1">
-              <div className="w-14 h-14 bg-green-500 bg-opacity-20 border border-green-400 border-opacity-50 flex items-center justify-center rounded-full">
-                <ChartColumnStacked className="stroke-green-500" />
-              </div>
-              <h3 className="text-xl textcenter font-bold">Last Payment</h3>
-              <p className="text-2xl font-extrabold"><span>&#8358;</span> {data.lastPayment}</p>
-            </div> */}
           </div>
           <h3 className="mt-6 mb-3 font-bold text-2xl">Project Updates</h3>
           <div className="boder rounded-t-2xl text-sm lg:text-base overflow-hidden">
-            <div className="grid grid-cols-4 font-bold text-xl px-5 py-3 border-b border-white border-opacity-20 bg-[#222]">
-              <p>S/N</p>
-              <p>Work</p>
-              <p>Status</p>
-              <p>Details</p>
+            <div className="grid grid-cols-7 font-bold sm:text-xl px-5 py-3 border-b border-white border-opacity-20 bg-[#222]">
+              <p className="col-span-1">S/N</p>
+              <p className="col-span-2">Work</p>
+              <p className="col-span-2">Status</p>
+              <p className="col-span-2">Details</p>
             </div>
 
-            <div className="grid grid-cols-4 px-5 py-2">
-              <p>1</p>
-              <p>{data.work1}</p>
-              <p>{data.status1}</p>
-              <p>{data.details1}</p>
+            <div className="grid text-xs sm:text-base grid-cols-7 px-5 py-2">
+              <p className="col-span-1">1</p>
+              <p className="borer col-span-2">{data.work1}</p>
+              <p className="borer col-span-2">{data.status1}</p>
+              <p className="borer col-span-2">{data.details1}</p>
             </div>
 
-            <div className="grid grid-cols-4 px-5 py-2">
-              <p>2</p>
-              <p>{data.work2}</p>
-              <p>{data.status2}</p>
-              <p>{data.details2}</p>
+            <div className="grid text-xs sm:text-base grid-cols-7 px-5 py-2">
+              <p className="col-span-1 ">2</p>
+              <p className="col-span-2">{data.work2}</p>
+              <p className="col-span-2">{data.status2}</p>
+              <p className="col-span-2">{data.details2}</p>
             </div>
 
-            <div className="grid grid-cols-4 px-5 py-2">
-              <p>3</p>
-              <p>{data.work3}</p>
-              <p>{data.status3}</p>
-              <p>{data.details3}</p>
+            <div className="grid  text-xs sm:text-base grid-cols-7 px-5 py-2">
+              <p className="col-span-1">3</p>
+              <p className="col-span-2">{data.work3}</p>
+              <p className="col-span-2">{data.status3}</p>
+              <p className="col-span-2">{data.details3}</p>
             </div>
-            <div className="grid grid-cols-4 px-5 py-2">
-              <p>4</p>
-              <p>{data.work4}</p>
-              <p>{data.status4}</p>
-              <p>{data.details4}</p>
+            <div className="grid text-xs sm:text-base grid-cols-7 px-5 py-2">
+              <p className="col-span-1">4</p>
+              <p className="col-span-2">{data.work4}</p>
+              <p className="col-span-2">{data.status4}</p>
+              <p className="col-span-2">{data.details4}</p>
             </div>
           </div>
         </div>
@@ -229,18 +229,29 @@ export default function Cost({ selectedId }: CostProps) {
                 href={"#"}
                 className="border lg:hidden inline-block mb-4 border-white border-opacity-30 text-base px-6 py-2 rounded-lg shadow-sm bg-black shadow-gray-400"
               >
-                Site Videos
+                Site Media
               </Link>
               <div className="relative w-full h-[200px] sm:h-[400px] lg:h-[200px] rounded-2xl overflow-hidden border border-white border-opacity-50">
-                <video
-                  src="/videos/sample.mp4"
-                  className="w-full h-full object-cover"
-                  controls
-                />
+                <iframe
+                  src={data.videoUrl}
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
               </div>
             </>
           ) : (
             <Swiper modules={[Navigation]} navigation allowTouchMove={true}>
+              <SwiperSlide>
+                <div className="relative w-full h-[200px] sm:h-[400px] lg:h-[200px] rounded-2xl overflow-hidden border border-white border-opacity-50">
+                  <Image src={data.imageUrl1} fill={true} alt="Image" />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="relative w-full h-[200px] sm:h-[400px] lg:h-[200px] rounded-2xl overflow-hidden border border-white border-opacity-50">
+                  <Image src={"/images/heroImg.jpg"} fill={true} alt="Image" />
+                </div>
+              </SwiperSlide>
               <SwiperSlide>
                 <div className="relative w-full h-[200px] sm:h-[400px] lg:h-[200px] rounded-2xl overflow-hidden border border-white border-opacity-50">
                   <Image
@@ -250,25 +261,11 @@ export default function Cost({ selectedId }: CostProps) {
                   />
                 </div>
               </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full h-[200px] sm:h-[400px] lg:h-[200px] rounded-2xl overflow-hidden border border-white border-opacity-50">
-                  <Image
-                    src={"/images/construct.jpg"}
-                    fill={true}
-                    alt="Image"
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full h-[200px] sm:h-[400px] lg:h-[200px] rounded-2xl overflow-hidden border border-white border-opacity-50">
-                  <Image src={"/images/heroImg.jpg"} fill={true} alt="Image" />
-                </div>
-              </SwiperSlide>
             </Swiper>
           )}
           <div className="flex gap-4 justify-center border border-white border-opacity-10 bg-[#222] shadow-xl px-4 py-2 rounded-lg mt-4 font-semibold">
             <p
-              className={`flex-1 <span>&#8358;</span>{
+              className={`flex-1 ${
                 isVideo &&
                 "border-opacity-40 bg-[#222] border border-white shadow-lg"
               } rounded-md text-center py-1 cursor-pointer transition-all duration-500`}
@@ -277,7 +274,7 @@ export default function Cost({ selectedId }: CostProps) {
               Video
             </p>
             <p
-              className={`flex-1 <span>&#8358;</span>{
+              className={`flex-1 ${
                 !isVideo &&
                 "border-opacity-40 bg-[#222] border border-white shadow-lg"
               }    rounded-md text-center py-1 cursor-pointer transition-all duration-500`}
@@ -287,89 +284,26 @@ export default function Cost({ selectedId }: CostProps) {
             </p>
           </div>
           {/*  */}
-          <div className="mt-4 rounded-t-xl self-center justify-self-center overflow-hidden pb-4 border border-white border-opacity-10 bg-[#22]">
+          <div className="mt-4 rounded-t-xl self-center justify-self-ceter overflow-hidden pb-4 border border-white border-opacity-10 bg-[#22]">
             <h4 className="font-bold text-xl px-4 bg-[#222] py-2 border-b border-white border-opacity-20">
               Project Details
             </h4>
             <div className="space-y-3 text-base lg:text-md px-4 pt-4">
               <p>
-                <span className="font-bold text-xl">Client:</span> Client Name
+                <span className="font-bold text-xl">Client:</span> {data.name}
               </p>
               <p>
-                <span className="font-bold text-xl">Location:</span> Project
-                Location
+                <span className="font-bold text-xl">Location:</span>{" "}
+                {data.location}
               </p>
               <p className="flex lg:block items-start gap-2">
                 <span className="font-bold text-xl leading-none">About:</span>{" "}
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Deleniti suscipit veritatis totam quis amet modi dolorem, ipsam
-                voluptatibus quo ratione, perspiciatis in sapiente dicta sit ea
-                quidem excepturi atque. Maxime!
+                {data.about}
               </p>
             </div>
           </div>
         </div>
       </div>
-      {/*  */}
-      {/* <div className="flex gap-12 flex-col-reverse lg:flex-row mt-8">
-        <div className="lg:w-1/2 bordr rounded-xl h-[400px]">
-          <video
-            src="/videos/sample.mp4"
-            className="w-full h-full rounded-xl object-cover shadow-md border border-white border-opacity-50 shadow-[#ffffff22]"
-            controls
-            autoPlay
-          ></video>
-        </div>
-        <div className="w-full lg:w-1/2 h-[200px] lg:h-[400px] relative">
-          <div className="next absolute top-1/2 bg-white right-0 translate-x-1/4 z-20 bg-opacity-65 rounded-full w-12 h-12 flex justify-center items-center -translate-y-1/2">
-            <ChevronRight className="stroke-[#222]" size={48} />
-          </div>
-          <div className="prev absolute top-1/2 bg-white z-20 rounded-full bg-opacity-65 -translate-x-1/4 w-12 h-12 flex justify-center items-center -translate-y-1/2">
-            <ChevronLeft className="stroke-[#222]" size={48} />
-          </div>
-          <div className="h-full boder">
-            <Swiper
-              modules={[Navigation, Pagination, Scrollbar, Autoplay]}
-              pagination={{ enabled: true, clickable: true }}
-              navigation={{ enabled: true, nextEl: ".next", prevEl: ".prev" }}
-              scrollbar={{ enabled: true }}
-              // autoplay={{ delay: 4000 }}
-            >
-              <SwiperSlide style={{ width: "100%" }}>
-                <div className="relative bordr w-full h-[200px] sm:h-[400px] lg:h-[400px] rounded-2xl overflow-hidden border border-white border-opacity-50">
-                  <Image
-                    src={"/images/construction.png"}
-                    fill={true}
-                    alt="Image"
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full h-[200px] sm:h-[400px] lg:h-[400px] rounded-2xl overflow-hidden border border-white border-opacity-50">
-                  <Image
-                    src={"/images/construct.jpg"}
-                    fill={true}
-                    alt="Image"
-                    className="objext-cover"
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full h-[200px] sm:h-[400px] lg:h-[400px] rounded-2xl overflow-hidden border border-white border-opacity-50">
-                  <Image
-                    src={"/images/heroImg.jpg"}
-                    fill={true}
-                    alt="Image"
-                    className="objext-cover"
-                  />
-                </div>
-              </SwiperSlide>
-            </Swiper>
-          </div>
-        </div>
-      </div> */}
-      {/*  */}
-      {/* <div className="text-white">{JSON.stringify(data)}</div> */}
     </section>
   );
 }
