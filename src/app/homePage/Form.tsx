@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
+import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
 
 export default function Form() {
   const [fullName, setFullName] = useState("");
@@ -12,6 +13,7 @@ export default function Form() {
   const [captchaInput, setCaptchaInput] = useState("");
   const [captcha, setCaptcha] = useState(generateCaptcha());
   const [loading, setLoading] = useState(false);
+  const [emailSubmitting, setEmailSubmitting] = useState<boolean>(false);
 
   // const [message, setMessage] = useState("");
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
@@ -100,8 +102,44 @@ export default function Form() {
     }
   };
 
+  const submitViaEmail = async () => {
+    setEmailSubmitting(true);
+    console.log("Submitting");
+    try {
+      await emailjs.send(
+        "service_vhlzynt",
+        "template_9uqkc7a",
+        {
+          user_name: fullName,
+          message: "Lorem ipsum dol et.",
+          investment_location: location,
+          budget: budget,
+          currency,
+          user_email: email,
+          phone,
+        },
+        {
+          publicKey: "PrPZn0OIX859UY3SF",
+        }
+      );
+      console.log("Success");
+    } catch (error) {
+      if (error instanceof EmailJSResponseStatus) {
+        console.log("EMAILJS ERROR: ", error);
+        alert("An Error Occured! Try Again");
+        return;
+      }
+    } finally {
+      setEmailSubmitting(false);
+      console.log("Finished");
+    }
+  };
+
   return (
-    <div id='form-section' className="flex flex-col justify-center items-center sm:py-32 py-10 sm:px-60 px-10">
+    <div
+      id="form-section"
+      className="flex flex-col justify-center items-center sm:py-32 py-10 sm:px-32 px-10"
+    >
       <h1 className="text-white text-center font-bold text-3xl md:text-4xl mb-16">
         WE WANT TO HEAR FROM YOU
       </h1>
@@ -239,15 +277,30 @@ export default function Form() {
           onChange={handleCaptchaChange}
           className="mb-5"
         />
+      </form>
 
+      <div className="flex items-center gap-4 mb-5">
+        <div className="w-[150px] h-[3px] bg-white bg-opacity-50"> </div>
+        <div className="text-white font-bold text-lg text-opacity-50">
+          Submit Via
+        </div>
+        <div className="w-[150px] h-[3px] bg-white bg-opacity-50"> </div>
+      </div>
+      <div className="flex items-center w-10/12 max-w-[600px] mx-auto gap-2">
+        <button
+          onClick={submitViaEmail}
+          className="bg-[#222] border self-stretch rounded-xl uppercase font-bold flex-1 text-white border-white"
+        >
+          {emailSubmitting ? "Sending..." : "Email"}
+        </button>
         <button
           type="submit"
           disabled={loading}
-          className="w-full py-4 px-2 border bg-[#222] rounded-xl mb-5 text-white font-bold uppercase"
+          className="flex-1 py-4 px-2 border bg-[#222] rounded-xl text-white font-bold uppercase"
         >
-          {loading ? "Sending..." : "SEND"}
+          {loading ? "Sending..." : "WhatsApp"}
         </button>
-      </form>
+      </div>
     </div>
   );
 }

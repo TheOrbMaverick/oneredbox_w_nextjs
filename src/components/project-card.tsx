@@ -53,7 +53,12 @@ export default function ProjectCard({
                     {images.map((item, i) => (
                       <SwiperSlide key={i}>
                         <div className="relative w-full h-[216px] lg:h-[300px] rounded-2xl overflow-hidden order border-white border-opacity-50">
-                          <Image src={item} fill={true} alt="Image" />
+                          <Image
+                            src={item}
+                            fill={true}
+                            alt="Image"
+                            className="object-cover"
+                          />
                         </div>
                       </SwiperSlide>
                     ))}
