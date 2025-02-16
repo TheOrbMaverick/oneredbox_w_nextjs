@@ -140,7 +140,9 @@ export default function Cost({ selectedId }: CostProps) {
                 </div>
                 <div className="w-[80px]">
                   <CircularProgress
-                    percentage={Math.round(getPercent(data.amountPaid, data.contractSum))}
+                    percentage={Math.round(
+                      getPercent(data.amountPaid, data.contractSum)
+                    )}
                     color={
                       getPercent(data.amountPaid, data.contractSum) > 50
                         ? "#008000"
@@ -168,7 +170,9 @@ export default function Cost({ selectedId }: CostProps) {
                 </div>
                 <div className="w-[80px]">
                   <CircularProgress
-                    percentage={Math.round(getPercent(data.balanceOwed, data.contractSum))}
+                    percentage={Math.round(
+                      getPercent(data.balanceOwed, data.contractSum)
+                    )}
                     color={
                       getPercent(data.amountPaid, data.contractSum) > 50
                         ? "#ff0000"
@@ -229,36 +233,32 @@ export default function Cost({ selectedId }: CostProps) {
               </Link>
               <div className="relative w-full h-[200px] sm:h-[400px] lg:h-[200px] rounded-2xl overflow-hidden border border-white border-opacity-50">
                 <iframe
-                    src={data.videoUrl}
-                    className="w-full h-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
+                  src={data.videoUrl}
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
               </div>
             </>
           ) : (
             <Swiper modules={[Navigation]} navigation allowTouchMove={true}>
               <SwiperSlide>
                 <div className="relative w-full h-[200px] sm:h-[400px] lg:h-[200px] rounded-2xl overflow-hidden border border-white border-opacity-50">
-                  <Image
-                    src={data.imageUrl1}
-                    fill={true}
-                    alt="Image"
-                  />
+                  <Image src={data.imageUrl1} fill={true} alt="Image" />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="relative w-full h-[200px] sm:h-[400px] lg:h-[200px] rounded-2xl overflow-hidden border border-white border-opacity-50">
+                  <Image src={"/images/heroImg.jpg"} fill={true} alt="Image" />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
                 <div className="relative w-full h-[200px] sm:h-[400px] lg:h-[200px] rounded-2xl overflow-hidden border border-white border-opacity-50">
                   <Image
-                    src={"/images/heroImg.jpg"}
+                    src={"/images/construction.png"}
                     fill={true}
                     alt="Image"
                   />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full h-[200px] sm:h-[400px] lg:h-[200px] rounded-2xl overflow-hidden border border-white border-opacity-50">
-                  <Image src={"/images/construction.png"} fill={true} alt="Image" />
                 </div>
               </SwiperSlide>
             </Swiper>
@@ -284,7 +284,7 @@ export default function Cost({ selectedId }: CostProps) {
             </p>
           </div>
           {/*  */}
-          <div className="mt-4 rounded-t-xl self-center justify-self-center overflow-hidden pb-4 border border-white border-opacity-10 bg-[#22]">
+          <div className="mt-4 rounded-t-xl self-center justify-self-ceter overflow-hidden pb-4 border border-white border-opacity-10 bg-[#22]">
             <h4 className="font-bold text-xl px-4 bg-[#222] py-2 border-b border-white border-opacity-20">
               Project Details
             </h4>
@@ -293,7 +293,8 @@ export default function Cost({ selectedId }: CostProps) {
                 <span className="font-bold text-xl">Client:</span> {data.name}
               </p>
               <p>
-                <span className="font-bold text-xl">Location:</span> {data.location}
+                <span className="font-bold text-xl">Location:</span>{" "}
+                {data.location}
               </p>
               <p className="flex lg:block items-start gap-2">
                 <span className="font-bold text-xl leading-none">About:</span>{" "}
