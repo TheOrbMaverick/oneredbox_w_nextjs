@@ -12,7 +12,6 @@ export default function Form() {
   const [captchaInput, setCaptchaInput] = useState("");
   const [captcha, setCaptcha] = useState(generateCaptcha());
   const [loading, setLoading] = useState(false);
-  const [emailSubmitting, setEmailSubmitting] = useState<boolean>(false);
 
   // const [message, setMessage] = useState("");
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
@@ -279,7 +278,7 @@ export default function Form() {
           }}
           className="bg-[#222] border self-stretch rounded-xl uppercase font-bold flex-1 text-white border-white"
         >
-          {emailSubmitting ? "Sending..." : "Email"}
+          {loading ? "Sending..." : "Email"}
         </button>
         <button
           type="submit"
