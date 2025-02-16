@@ -267,7 +267,6 @@ export default function Form() {
       </div>
       <div className="flex items-center w-10/12 max-w-[600px] mx-auto gap-2">
         <button
-          type="submit"
           onClick={(e) => {
             e.preventDefault();
             if (!captchaToken) {
