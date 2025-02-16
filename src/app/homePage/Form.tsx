@@ -101,7 +101,7 @@ export default function Form() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center sm:py-32 py-10 sm:px-60 px-10">
+    <div id='form-section' className="flex flex-col justify-center items-center sm:py-32 py-10 sm:px-60 px-10">
       <h1 className="text-white text-center font-bold text-3xl md:text-4xl mb-16">
         WE WANT TO HEAR FROM YOU
       </h1>
