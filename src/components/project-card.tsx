@@ -12,7 +12,7 @@ interface IProject {
   video: string;
   images: string[];
   client: string;
-  date: string;
+  date?: string;
   location: string;
   about: string;
 }
@@ -72,7 +72,7 @@ export default function ProjectCard({
                 <p
                   className={`flex-1 ${
                     !isVideo &&
-                    "border-opacity-40  border border-white shadow-lg"
+                    "border-opacity-40 border border-white shadow-lg"
                   }    rounded-md text-center py-1 cursor-pointer transition-all duration-300`}
                   onClick={() => setIsVideo(false)}
                 >
