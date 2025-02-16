@@ -232,16 +232,6 @@ export default function Form() {
             className="text-black w-full py-4 px-2 border border-black rounded-lg focus:outline-none"
             required
           />
-
-          {/* <label htmlFor="message" className="text-gray-500">
-            Message
-          </label>
-          <textarea
-            placeholder="Enter your message"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            className="text-black w-full py-4 px-2 border border-black rounded-lg focus:outline-none"
-          /> */}
         </div>
 
         <ReCAPTCHA
