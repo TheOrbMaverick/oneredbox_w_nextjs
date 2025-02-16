@@ -4,33 +4,33 @@ import AreaFilter from "@/components/area-filter";
 import React, { useRef, useState } from "react";
 
 const areas = [
-  { state: "Lagos", area: "Ikeja" },
-  { state: "Lagos", area: "Victoria Island" },
-  { state: "Lagos", area: "Surulere" },
-  { state: "Abuja", area: "Garki" },
-  { state: "Abuja", area: "Wuse" },
-  { state: "Abuja", area: "Maitama" },
-  { state: "Kano", area: "Fagge" },
-  { state: "Kano", area: "Tarauni" },
-  { state: "Kano", area: "Gwale" },
-  { state: "Rivers", area: "Port Harcourt" },
-  { state: "Rivers", area: "Obio-Akpor" },
-  { state: "Rivers", area: "Eleme" },
-  { state: "Oyo", area: "Ibadan North" },
-  { state: "Oyo", area: "Ibadan South-West" },
-  { state: "Oyo", area: "Ogbomosho" },
-  { state: "Kaduna", area: "Kaduna North" },
-  { state: "Kaduna", area: "Kaduna South" },
-  { state: "Kaduna", area: "Zaria" },
-  { state: "Enugu", area: "Enugu North" },
-  { state: "Enugu", area: "Enugu South" },
-  { state: "Enugu", area: "Nsukka" },
-  { state: "Delta", area: "Warri" },
-  { state: "Delta", area: "Asaba" },
-  { state: "Delta", area: "Ughelli" },
-  { state: "Anambra", area: "Awka" },
-  { state: "Anambra", area: "Onitsha" },
-  { state: "Anambra", area: "Nnewi" },
+  { state: "Lagos", area: "Ikeja", cost: "Coming soon" },
+  { state: "Lagos", area: "Victoria Island", cost: "Coming soon" },
+  { state: "Lagos", area: "Surulere", cost: "Coming soon" },
+  { state: "Abuja", area: "Garki", cost: "Coming soon" },
+  { state: "Abuja", area: "Wuse", cost: "Coming soon" },
+  { state: "Abuja", area: "Maitama", cost: "Coming soon" },
+  { state: "Kano", area: "Fagge", cost: "Coming soon" },
+  { state: "Kano", area: "Tarauni", cost: "Coming soon" },
+  { state: "Kano", area: "Gwale", cost: "Coming soon" },
+  { state: "Rivers", area: "Port Harcourt", cost: "Coming soon" },
+  { state: "Rivers", area: "Obio-Akpor", cost: "Coming soon" },
+  { state: "Rivers", area: "Eleme", cost: "Coming soon" },
+  { state: "Oyo", area: "Ibadan North", cost: "Coming soon" },
+  { state: "Oyo", area: "Ibadan South-West", cost: "Coming soon" },
+  { state: "Oyo", area: "Ogbomosho", cost: "Coming soon" },
+  { state: "Kaduna", area: "Kaduna North", cost: "Coming soon" },
+  { state: "Kaduna", area: "Kaduna South", cost: "Coming soon" },
+  { state: "Kaduna", area: "Zaria", cost: "Coming soon" },
+  { state: "Enugu", area: "Enugu North", cost: "Coming soon" },
+  { state: "Enugu", area: "Enugu South", cost: "Coming soon" },
+  { state: "Enugu", area: "Nsukka", cost: "Coming soon" },
+  { state: "Delta", area: "Warri", cost: "Coming soon" },
+  { state: "Delta", area: "Asaba", cost: "Coming soon" },
+  { state: "Delta", area: "Ughelli", cost: "Coming soon" },
+  { state: "Anambra", area: "Awka", cost: "Coming soon" },
+  { state: "Anambra", area: "Onitsha", cost: "Coming soon" },
+  { state: "Anambra", area: "Nnewi", cost: "Coming soon" },
 ];
 
 const areasList = [...new Set(areas.map((area) => area.state))];
@@ -50,7 +50,7 @@ export default function Areas() {
         <div className="text-2xl pb-6 shadow-lg shadow-[#22]  font-bold grid grid-cols-3 text-center justify-between py-3 border-b border-white border-opacity-25 px-5 bg-[#222] rounded-t-lg">
           <p>State</p>
           <p>Area</p>
-          <p>Price/sq.m</p>
+          <p>₦ Price/sq.m</p>
         </div>
 
         <div className="max-h-[400px] relative bordr overflow-y-scroll [&::-webkit-scrollbar]:hidden border border-t-transparent border-white border-opacity-25 pb-8 rounded-b-lg">
@@ -69,7 +69,7 @@ export default function Areas() {
                       <p>{item.state}</p>
                       <p>{item.area}</p>
                       <p>
-                        ₦100
+                        {item.cost}
                       </p>
                     </div>
                   ))}
@@ -87,19 +87,13 @@ export default function Areas() {
                     <p className="border-x border-white border-opacity-20">
                       {item.area}
                     </p>
-                    <p>₦100</p>
+                    <p>{item.cost}</p>
                   </div>
                 ))}
               </>
             )}
           </div>
         </div>
-        {/* <div
-          onClick={() => {}}
-          className="absolute bottom-0 translate-y-1/2 z-20 flex left-1/2 bg-opacity-70 -translate-x-1/2 bg-white items-center justify-center h-10 w-10 rounded-full"
-        >
-          <ChevronDown className="stroke-black" size={40} />
-        </div> */}
       </div>
     </div>
   );
