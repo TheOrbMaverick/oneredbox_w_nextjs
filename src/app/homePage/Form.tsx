@@ -256,7 +256,6 @@ export default function Form() {
           onChange={handleCaptchaChange}
           className="mb-5"
         />
-      </form>
 
       <div className="flex items-center gap-4 mb-5">
         <div className="w-[150px] h-[3px] bg-white bg-opacity-50"> </div>
@@ -287,6 +286,7 @@ export default function Form() {
           {loading ? "Sending..." : "WhatsApp"}
         </button>
       </div>
+      </form>
     </div>
   );
 }
