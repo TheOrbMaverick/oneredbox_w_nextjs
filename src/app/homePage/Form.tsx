@@ -100,8 +100,25 @@ export default function Form() {
     }
   };
 
+  const submitViaEmail = () => {
+    const subject = "Investment Inquiry";
+    const body = `
+      Full Name: ${fullName}
+      Email: ${email}
+      Phone: ${phone}
+      Location: ${location}
+      Budget: ${budget}
+      Currency: ${currency}
+    `;
+    const mailtoLink = `mailto:hello@oneredbox.ng?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+  };
+
   return (
-    <div id='form-section' className="flex flex-col justify-center items-center sm:py-32 py-10 sm:px-60 px-10">
+    <div
+      id="form-section"
+      className="flex flex-col justify-center items-center sm:py-32 py-10 sm:px-32 px-10"
+    >
       <h1 className="text-white text-center font-bold text-3xl md:text-4xl mb-16">
         WE WANT TO HEAR FROM YOU
       </h1>
@@ -239,15 +256,38 @@ export default function Form() {
           onChange={handleCaptchaChange}
           className="mb-5"
         />
+      </form>
 
+      <div className="flex items-center gap-4 mb-5">
+        <div className="w-[150px] h-[3px] bg-white bg-opacity-50"> </div>
+        <div className="text-white font-bold text-lg text-opacity-50">
+          Submit Via
+        </div>
+        <div className="w-[150px] h-[3px] bg-white bg-opacity-50"> </div>
+      </div>
+      <div className="flex items-center w-10/12 max-w-[600px] mx-auto gap-2">
+        <button
+          type="submit"
+          onClick={(e) => {
+            e.preventDefault();
+            if (!captchaToken) {
+              alert("Please complete the CAPTCHA to proceed.");
+              return;
+            }
+            submitViaEmail();
+          }}
+          className="bg-[#222] border self-stretch rounded-xl uppercase font-bold flex-1 text-white border-white"
+        >
+          {loading ? "Sending..." : "Email"}
+        </button>
         <button
           type="submit"
           disabled={loading}
-          className="w-full py-4 px-2 border bg-[#222] rounded-xl mb-5 text-white font-bold uppercase"
+          className="flex-1 py-4 px-2 border bg-[#1fd63d] rounded-xl text-white font-bold uppercase"
         >
-          {loading ? "Sending..." : "SEND"}
+          {loading ? "Sending..." : "WhatsApp"}
         </button>
-      </form>
+      </div>
     </div>
   );
 }
