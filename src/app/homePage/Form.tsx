@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
-import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
 
 export default function Form() {
   const [fullName, setFullName] = useState("");
