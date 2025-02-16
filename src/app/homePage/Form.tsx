@@ -102,37 +102,18 @@ export default function Form() {
     }
   };
 
-  const submitViaEmail = async () => {
-    setEmailSubmitting(true);
-    console.log("Submitting");
-    try {
-      await emailjs.send(
-        "service_vhlzynt",
-        "template_9uqkc7a",
-        {
-          user_name: fullName,
-          message: "Lorem ipsum dol et.",
-          investment_location: location,
-          budget: budget,
-          currency,
-          user_email: email,
-          phone,
-        },
-        {
-          publicKey: "PrPZn0OIX859UY3SF",
-        }
-      );
-      console.log("Success");
-    } catch (error) {
-      if (error instanceof EmailJSResponseStatus) {
-        console.log("EMAILJS ERROR: ", error);
-        alert("An Error Occured! Try Again");
-        return;
-      }
-    } finally {
-      setEmailSubmitting(false);
-      console.log("Finished");
-    }
+  const submitViaEmail = () => {
+    const subject = "Investment Inquiry";
+    const body = `
+      Full Name: ${fullName}
+      Email: ${email}
+      Phone: ${phone}
+      Location: ${location}
+      Budget: ${budget}
+      Currency: ${currency}
+    `;
+    const mailtoLink = `mailto:hello@oneredbox.ng?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
   };
 
   return (
@@ -288,7 +269,15 @@ export default function Form() {
       </div>
       <div className="flex items-center w-10/12 max-w-[600px] mx-auto gap-2">
         <button
-          onClick={submitViaEmail}
+          type="submit"
+          onClick={(e) => {
+            e.preventDefault();
+            if (!captchaToken) {
+              alert("Please complete the CAPTCHA to proceed.");
+              return;
+            }
+            submitViaEmail();
+          }}
           className="bg-[#222] border self-stretch rounded-xl uppercase font-bold flex-1 text-white border-white"
         >
           {emailSubmitting ? "Sending..." : "Email"}
@@ -296,7 +285,7 @@ export default function Form() {
         <button
           type="submit"
           disabled={loading}
-          className="flex-1 py-4 px-2 border bg-[#222] rounded-xl text-white font-bold uppercase"
+          className="flex-1 py-4 px-2 border bg-[#1fd63d] rounded-xl text-white font-bold uppercase"
         >
           {loading ? "Sending..." : "WhatsApp"}
         </button>
